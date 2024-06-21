@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterMind</title>
+    <link rel="stylesheet" href="masterMind.css">
+</head>
+
+<body>
+    <div id="div1" class="juego">
+        <div class="circulo blanco" id="circulo_1" onclick="cambioColor('circulo_1')"></div>
+        <div class="circulo blanco" id="circulo_2" onclick="cambioColor('circulo_2')"></div>
+        <div class="circulo blanco" id="circulo_3" onclick="cambioColor('circulo_3')"></div>
+        <div class="circulo blanco" id="circulo_4" onclick="cambioColor('circulo_4')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_1','circulo_2','circulo_3','circulo_4','sol1','sol2','sol3','sol4'); noNone('div2','div1')" >
+            <div id="sol1" class="circuloSol blanco"></div>
+            <div id="sol2" class="circuloSol blanco"></div>
+            <div id="sol3" class="circuloSol blanco"></div>
+            <div id="sol4" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div2" class="juego none">
+        <div class="circulo blanco" id="circulo_5" onclick="cambioColor('circulo_5')"></div>
+        <div class="circulo blanco" id="circulo_6" onclick="cambioColor('circulo_6')"></div>
+        <div class="circulo blanco" id="circulo_7" onclick="cambioColor('circulo_7')"></div>
+        <div class="circulo blanco" id="circulo_8" onclick="cambioColor('circulo_8')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_5','circulo_6','circulo_7','circulo_8','sol5','sol6','sol7','sol8'); noNone('div3','div2')">
+            <div id="sol5" class="circuloSol blanco"></div>
+            <div id="sol6" class="circuloSol blanco"></div>
+            <div id="sol7" class="circuloSol blanco"></div>
+            <div id="sol8" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div3" class="juego none">
+        <div class="circulo blanco" id="circulo_9" onclick="cambioColor('circulo_9')"></div>
+        <div class="circulo blanco" id="circulo_10" onclick="cambioColor('circulo_10')"></div>
+        <div class="circulo blanco" id="circulo_11" onclick="cambioColor('circulo_11')"></div>
+        <div class="circulo blanco" id="circulo_12" onclick="cambioColor('circulo_12')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_9','circulo_10','circulo_11','circulo_12','sol9','sol10','sol11','sol12'); noNone('div4','div3')">
+            <div id="sol9" class="circuloSol blanco"></div>
+            <div id="sol10" class="circuloSol blanco"></div>
+            <div id="sol11" class="circuloSol blanco"></div>
+            <div id="sol12" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div4" class="juego none">
+        <div class="circulo blanco" id="circulo_13" onclick="cambioColor('circulo_13')"></div>
+        <div class="circulo blanco" id="circulo_14" onclick="cambioColor('circulo_14')"></div>
+        <div class="circulo blanco" id="circulo_15" onclick="cambioColor('circulo_15')"></div>
+        <div class="circulo blanco" id="circulo_16" onclick="cambioColor('circulo_16')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_13','circulo_14','circulo_15','circulo_16','so13','sol14','sol15','sol16'); noNone('div5','div4')">
+            <div id="so13" class="circuloSol blanco"></div>
+            <div id="sol14" class="circuloSol blanco"></div>
+            <div id="sol15" class="circuloSol blanco"></div>
+            <div id="sol16" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div5" class="juego none">
+        <div class="circulo blanco" id="circulo_17" onclick="cambioColor('circulo_17')"></div>
+        <div class="circulo blanco" id="circulo_18" onclick="cambioColor('circulo_18')"></div>
+        <div class="circulo blanco" id="circulo_19" onclick="cambioColor('circulo_19')"></div>
+        <div class="circulo blanco" id="circulo_20" onclick="cambioColor('circulo_20')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_17','circulo_18','circulo_19','circulo_20','sol17','sol18','sol19','sol20'); noNone('div6','div5')">
+            <div id="sol17" class="circuloSol blanco"></div>
+            <div id="sol18" class="circuloSol blanco"></div>
+            <div id="sol19" class="circuloSol blanco"></div>
+            <div id="sol20" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div6" class="juego none">
+        <div class="circulo blanco" id="circulo_21" onclick="cambioColor('circulo_21')"></div>
+        <div class="circulo blanco" id="circulo_22" onclick="cambioColor('circulo_22')"></div>
+        <div class="circulo blanco" id="circulo_23" onclick="cambioColor('circulo_23')"></div>
+        <div class="circulo blanco" id="circulo_24" onclick="cambioColor('circulo_24')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_21','circulo_22','circulo_24','circulo_24','sol21','sol22','sol23','sol24'); noNone('div7','div6')">
+            <div id="sol21" class="circuloSol blanco"></div>
+            <div id="sol22" class="circuloSol blanco"></div>
+            <div id="sol23" class="circuloSol blanco"></div>
+            <div id="sol24" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div7" class="juego none">
+        <div class="circulo blanco" id="circulo_25" onclick="cambioColor('circulo_25')"></div>
+        <div class="circulo blanco" id="circulo_26" onclick="cambioColor('circulo_26')"></div>
+        <div class="circulo blanco" id="circulo_27" onclick="cambioColor('circulo_27')"></div>
+        <div class="circulo blanco" id="circulo_28" onclick="cambioColor('circulo_28')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_25','circulo_26','circulo_27','circulo_28','sol25','sol26','sol27','sol28'); noNone('div8','div7')">
+            <div id="sol25" class="circuloSol blanco"></div>
+            <div id="sol26" class="circuloSol blanco"></div>
+            <div id="sol27" class="circuloSol blanco"></div>
+            <div id="sol28" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div8" class="juego none">
+        <div class="circulo blanco" id="circulo_29" onclick="cambioColor('circulo_29')"></div>
+        <div class="circulo blanco" id="circulo_30" onclick="cambioColor('circulo_30')"></div>
+        <div class="circulo blanco" id="circulo_31" onclick="cambioColor('circulo_31')"></div>
+        <div class="circulo blanco" id="circulo_32" onclick="cambioColor('circulo_32')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_29','circulo_30','circulo_31','circulo_32','sol29','sol30','sol31','sol32'); noNone('div9','div8')">
+            <div id="sol29" class="circuloSol blanco"></div>
+            <div id="sol30" class="circuloSol blanco"></div>
+            <div id="sol31" class="circuloSol blanco"></div>
+            <div id="sol32" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div9" class="juego none">
+        <div class="circulo blanco" id="circulo_33" onclick="cambioColor('circulo_33')"></div>
+        <div class="circulo blanco" id="circulo_34" onclick="cambioColor('circulo_34')"></div>
+        <div class="circulo blanco" id="circulo_35" onclick="cambioColor('circulo_35')"></div>
+        <div class="circulo blanco" id="circulo_36" onclick="cambioColor('circulo_36')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_33','circulo_34','circulo_35','circulo_36','sol33','sol34','sol35','sol36'); noNone('div10','div9')">
+            <div id="sol33" class="circuloSol blanco"></div>
+            <div id="sol34" class="circuloSol blanco"></div>
+            <div id="sol35" class="circuloSol blanco"></div>
+            <div id="sol36" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    <div id="div10" class="juego none">
+        <div class="circulo blanco" id="circulo_37" onclick="cambioColor('circulo_37')"></div>
+        <div class="circulo blanco" id="circulo_38" onclick="cambioColor('circulo_38')"></div>
+        <div class="circulo blanco" id="circulo_39" onclick="cambioColor('circulo_39')"></div>
+        <div class="circulo blanco" id="circulo_40" onclick="cambioColor('circulo_40')"></div>
+        <div class="solucion" onclick="comprovarSolucion('circulo_37','circulo_38','circulo_39','circulo_40','sol37','sol38','sol39','sol40');">
+            <div id="sol37" class="circuloSol blanco"></div>
+            <div id="sol38" class="circuloSol blanco"></div>
+            <div id="sol39" class="circuloSol blanco"></div>
+            <div id="sol40" class="circuloSol blanco"></div>
+        </div>
+    </div>
+    
+    <script src="masterMind.js"></script>
+</body>
+
+</html>

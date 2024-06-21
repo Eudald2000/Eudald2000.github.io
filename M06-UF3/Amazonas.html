@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazonas</title>
+    <style>
+        .marron {
+            background-color: rgb(94, 54, 2);
+        }
+
+        .negro {
+            background-color: rgb(143, 143, 143);
+        }
+
+        .board div {
+            padding: 0;
+            display: flex;
+        }
+
+        /* QUADRADOS DENTRO DE LAS FILAS */
+        .board div div {
+            padding: 0;
+            height: 50px;
+            width: 50px;
+            position: relative;
+            /* Necesario para posicionar elementos hijos */
+        }
+
+        .bordeNegro {
+            border: 2px solid rgb(0, 0, 0);
+        }
+
+        .reinaNegra img,
+        .reinaBlanca img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .flecha {
+            background-color: black;
+        }
+
+        .borde {
+            border: 2px solid rgb(255, 0, 0);
+
+        }
+
+        .bordeVerde {
+            border: 2px solid rgb(0, 255, 0);
+        }
+
+        body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('fondo.webp');
+    background-repeat: no-repeat;
+    background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="board" class="board">
+    </div>
+    <script>
+
+        let board = document.getElementById('board');
+        let contador = 1;
+        let turnoActual = 0;
+
+        function pintarTablero() {
+            board.innerHTML = '';
+            for (var f = 0; f < 10; f++) {
+                let row = document.createElement('div')
+                row.id = contador;
+                board.appendChild(row)
+                contador++;
+                for (var c = 0; c < 10; c++) {
+                    let cell = document.createElement('div')
+                    cell.id = contador;
+                    row.appendChild(cell)
+                    if (contador % 2) {
+                        cell.classList.add('marron');
+                        cell.classList.add('bordeNegro');
+                    } else {
+                        cell.classList.add('negro');
+                        cell.classList.add('bordeNegro');
+                    }
+
+                    if (contador == 104 || contador == 107 || contador == 68 || contador == 77) {
+                        let celdaReina = document.getElementById(contador);
+                        celdaReina.classList.add('reinaBlanca');
+                        let imgReinaBlanca = document.createElement('img');
+                        imgReinaBlanca.src = 'blanca.png';
+                        celdaReina.appendChild(imgReinaBlanca);
+
+                    }
+                    if (contador == 35 || contador == 5 || contador == 8 || contador == 44) {
+                        let celdaReina = document.getElementById(contador);
+                        celdaReina.classList.add('reinaNegra');
+                        let imgReinaNegra = document.createElement('img');
+                        imgReinaNegra.src = 'negra.png';
+                        celdaReina.appendChild(imgReinaNegra);
+                    }
+                    contador++;
+                }
+            }
+            administrarTurno();
+        }
+
+        function mostrarCaminos(c, f) {
+            if (board.children[f].children[c].classList.contains('bordeVerde')) {
+                //HACIA LA DERECHA
+                for (let k = c; k < board.children.length - 1 && board.children[f].children[k + 1].children.length == 0; k++) {
+                    board.children[f].children[k + 1].classList.remove('bordeNegro');
+                    board.children[f].children[k + 1].classList.add('borde');
+                }
+                //HACIA LA IZQUIERDA
+                for (let k = c; k > 0 && board.children[f].children[k - 1].children.length == 0; k--) {
+                    board.children[f].children[k - 1].classList.remove('bordeNegro');
+                    board.children[f].children[k - 1].classList.add('borde');
+                }
+                //HACIA ARRIBA
+                for (let k = f; k > 0 && board.children[k - 1].children[c].children.length == 0; k--) {
+                    board.children[k - 1].children[c].classList.remove('bordeNegro');
+                    board.children[k - 1].children[c].classList.add('borde');
+                }
+                //HACIA ABAJO
+                for (let k = f; k < board.children.length - 1 && board.children[k + 1].children[c].children.length == 0; k++) {
+                    board.children[k + 1].children[c].classList.remove('bordeNegro');
+                    board.children[k + 1].children[c].classList.add('borde');
+                }
+                //DIAGONAL DERECHA ABAJO
+                for (let k = 1; f + k < board.children.length && c + k < board.children[f + k].children.length && board.children[f + k].children[c + k].children.length == 0; k++) {
+                    //k < 10
+                    board.children[f + k].children[c + k].classList.remove('bordeNegro');
+                    board.children[f + k].children[c + k].classList.add('borde');
+                }
+                //DIAGONAL IZQUIERDA ARRIBA
+                for (let k = 1; f - k < board.children.length && f - k >= 0 && c - k >= 0 && board.children[f - k].children[c - k].children.length === 0; k++) {
+                    //k < 10
+                    board.children[f - k].children[c - k].classList.remove('bordeNegro');
+                    board.children[f - k].children[c - k].classList.add('borde');
+                }
+                //DIAGONAL DERECHA ARRIBA
+                for (let k = 1; f - k >= 0 && c + k < board.children[f - k].children.length && board.children[f - k].children[c + k].children.length === 0; k++) {
+                    board.children[f - k].children[c + k].classList.remove('bordeNegro');
+                    board.children[f - k].children[c + k].classList.add('borde');
+                }
+
+                // DIAGONAL IZQUIERDA ABAJO
+                for (let k = 1; f + k < 10 && c - k >= 0 && board.children[f + k].children[c - k].children.length === 0; k++) {
+                    board.children[f + k].children[c - k].classList.remove('bordeNegro');
+                    board.children[f + k].children[c - k].classList.add('borde');
+                }
+            }
+        }
+
+        function quitarCAmino() {
+            for (let f = 0; f < board.children.length; f++) {
+                for (let c = 0; c < board.children[f].children.length; c++) {
+                    board.children[f].children[c].classList.remove('borde');
+                    board.children[f].children[c].classList.remove('bordeVerde');
+                    board.children[f].children[c].classList.add('bordeNegro');
+                }
+            }
+        }
+
+        function administrarTurno() {
+            for (let f = 0; f < board.children.length; f++) {
+                for (let c = 0; c < board.children[f].children.length; c++) {
+                    if (turnoActual % 2 == 0 && board.children[f].children[c].children[0]) {
+                        if (board.children[f].children[c].children[0].getAttribute('src') == ('blanca.png')) {
+                            board.children[f].children[c].classList.add('bordeVerde')
+                        }
+                    } else if (turnoActual % 2 != 0 && board.children[f].children[c].children[0]) {
+                        if (board.children[f].children[c].children[0].getAttribute('src') == ('negra.png')) {
+                            board.children[f].children[c].classList.add('bordeVerde')
+                        }
+                    }
+                }
+            }
+        }
+
+        let bloqCamino = false;
+
+        function seleccionarReina(evento1) {
+            let imagen = evento1.target.parentNode;
+            console.log(imagen);
+            let reina = imagen.children[0];
+            if (reina.tagName === 'IMG') {
+                for (let fila = 0; fila < board.children.length; fila++) {
+                    for (let col = 0; col < board.children[fila].children.length; col++) {
+                        if (board.children[fila].children[col].id === evento1.target.parentElement.id) {
+                            //console.log(board.children[f].children[c]);
+                            mostrarCaminos(col, fila);
+
+                            let caminos = document.querySelectorAll('.borde');
+                            caminos.forEach(camino => {
+                                camino.addEventListener('click', moverReina);
+                            });
+
+                            function moverReina(evento2) {
+                                if (bloqCamino == false) {
+                                    let clase = imagen.classList[2];
+                                    let mover = evento2.target
+                                    if (mover.classList.contains('borde') && imagen.contains(reina)) {
+                                        imagen.removeChild(reina);
+                                        imagen.classList.remove(clase)
+                                        mover.appendChild(reina);
+                                        mover.classList.add(clase);
+                                        quitarCAmino();
+                                    }
+                                    caminos.forEach(camino => {
+                                        camino.removeEventListener('click', moverReina);
+                                    });
+                                    quitarCAmino();
+                                    if (!imagen.contains(reina)) {
+                                        mover.classList.add('bordeVerde');
+
+                                    }
+                                    bloqCamino = true
+                                } else if (bloqCamino == true) {
+                                    caminos = document.querySelectorAll('.borde');
+                                    caminos.forEach(camino => {
+                                        camino.removeEventListener('click', moverReina);
+                                    });
+                                    bloquear(evento2);
+                                    bloqCamino = false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function bloquear(e) {
+            if (e.target.classList.contains('borde')) {
+                let flecha = document.createElement('div');
+                flecha.classList.add('flecha');
+                e.target.appendChild(flecha);
+                turnoActual++;
+            }
+            let caminos2 = document.querySelectorAll('.borde');
+            caminos2.forEach(camino => {
+                camino.removeEventListener('click', bloquear);
+            });
+            quitarCAmino();
+            administrarTurno();
+        }
+
+        document.addEventListener("DOMContentLoaded", pintarTablero); {
+        };
+        document.addEventListener('click', seleccionarReina);
+    </script>
+</body>
+
+</html>

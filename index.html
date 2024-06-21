@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto con Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Portafolios</a>
+            <label class="theme-switch">
+                <input type="checkbox" class="theme-switch__checkbox">
+                <div class="theme-switch__container">
+                    <div class="theme-switch__clouds"></div>
+                    <div class="theme-switch__stars-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="theme-switch__circle-container">
+                        <div class="theme-switch__sun-moon-container">
+                            <div class="theme-switch__moon">
+                                <div class="theme-switch__spot"></div>
+                                <div class="theme-switch__spot"></div>
+                                <div class="theme-switch__spot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </label>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            M06
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" id="M06-UF1" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#myModal">UF1</a></li>
+                            <li><a class="dropdown-item" id="M06-UF3" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#myModal">UF3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            M09
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" id="M09-UF2" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#myModal">UF2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="pb-5mb-5 d-flex flex-column flex-md-row align-items-stretch">
+            <div class="p-2">
+                <img src="img/fotoCV.jpg" alt="Avatar" data-aos="zoom-in-up" data-aos-duration="1200">
+            </div>
+            <div class="p-2" data-aos="zoom-in-up" data-aos-duration="1200">
+                <h1 class="display-4">Sobre mí</h1>
+                <p class="lead">
+                    ¡Hola! Me llamo Eudald, soy estudiante de <abbr title="Desarrollo de Aplicaciones Web">DAW</abbr> en
+                    el
+                    Instituto de Badia del
+                    Vallès. Aunque mi experiencia laboral en el sector de la programacion es limitada, me considero un
+                    lienzo en
+                    blanco, listo y dispuesto a aprender nuevas tecnologías y lenguajes de programación con los que
+                    pintar
+                    nuevo codigo.
+                </p>
+                <p class="lead">
+                    Mi educación en <abbr title="Desarrollo de Aplicaciones Web">DAW</abbr> me dio una base sólida en
+                    varios
+                    lenguajes de programación y tecnologías web.
+                    Aunque no tenga experiencia laboral en el sector de la programacion, a lo largo del Grado he
+                    realizado
+                    varios
+                    proyectos con distintos lenguajes de programacion. I distintos cursos para ampliar mis
+                    conocimientos.
+                </p>
+                <p class="lead">
+                    Estoy dispuesto a aprender cualquier tecnología o lenguaje que sea útil para la empresa. Mi
+                    objetivo es crecer como desarrollador y hacer una contribución significativa a cualquier equipo en
+                    el
+                    que esté.
+                </p>
+            </div>
+        </div>
+        <div class=" pt-5 text-end">
+            <h1>Lenguajes y Frameworks</h1>
+            <h2>Lenguajes</h2>
+            <div class="d-flex flex-wrap justify-content-end">
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="100">
+                    <div>PHP</div>
+                    <img src="img/php.png" alt="Icono de PHP" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="200">
+                    <div>JS</div>
+                    <img src="img/js.png" alt="Icono de JS" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="300">
+                    <div>JAVA</div>
+                    <img src="img/java.png" alt="Icono de Java" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="400">
+                    <div>HTML</div>
+                    <img src="img/html-5.png" alt="Icono de Html" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="500">
+                    <div>CSS</div>
+                    <img src="img/css-3.png" alt="Icono de CSS" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-left" data-aos-delay="600">
+                    <div>SQL</div>
+                    <img src="img/sql.png" alt="Icono de SQL" class="img-fluid" style="max-width: 100px;">
+                </div>
+            </div>
+            <h2>Frameworks</h2>
+            <div class="d-flex flex-wrap justify-content-end">
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="100">
+                    <div>LARAVEL</div>
+                    <img src="img/laravel.png" alt="Icono de Laravel" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="200">
+                    <div>TAILWIND</div>
+                    <img src="img/tailwind.png" alt="Icono de TailWind" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="300">
+                    <div>BOOSTRAP</div>
+                    <img src="img/boostrap.png" alt="Icono de Boostrap" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="400">
+                    <div>REACT</div>
+                    <img src="img/react.png" alt="Icono de React" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="500">
+                    <div>NEXT</div>
+                    <img src="img/next.png" alt="Icono de Next" class="img-fluid" style="max-width: 100px;">
+                </div>
+                <div class="p-2 flex-fill text-center" data-aos="fade-right" data-aos-delay="600">
+                    <div>JQUERY</div>
+                    <img src="img/jquery.png" alt="Icono de JQuery" class="img-fluid" style="max-width: 100px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <button type="button" class="btn btn-secondary" onclick="history.back();">
+                        <i class="fas fa-arrow-left"></i>
+                    </button> -->
+                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center align-items-center col-12">
+                    <iframe id="if-M06-UF1" style="display: none; height: 90vh; background: transparent;" class="col-12"
+                        src="M06-UF1/index.html" frameborder="0"></iframe>
+                    <iframe id="if-M06-UF2" style="display: none; height: 90vh; background: transparent;" class="col-12"
+                        src="M06-UF2/index.html" frameborder="0"></iframe>
+                    <iframe id="if-M06-UF3" style="display: none; height: 90vh; background: transparent;" class="col-12"
+                        src="M06-UF3/index.html" frameborder="0"></iframe>
+                    <iframe id="if-M06-UF4" style="display: none; height: 90vh; background: transparent;" class="col-12"
+                        src="M06-UF4/index.html" frameborder="0"></iframe>
+                    <iframe id="if-M09-UF2" style="display: none; height: 90vh; background: transparent;" class="col-12"
+                        src="M09-UF2/index.html" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <p>Puedes encontarme aqui:</p>
+            <a href="https://www.linkedin.com/in/tu-nombre/" target="_blank"
+                class="btn btn-outline-dark btn-social mx-1">
+                <i class="fab fa-fw fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/tu-nombre" target="_blank" class="btn btn-outline-dark btn-social mx-1">
+                <i class="fab fa-fw fa-github"></i>
+            </a>
+        </div>
+        <div class="text-center">
+            <p class="mt-3">© 2024 Eudald Bosch Soria. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+
+        window.onload = function () {
+            AOS.init();
+            var dropdownItems = document.getElementsByClassName('dropdown-item');
+
+            for (var i = 0; i < dropdownItems.length; i++) {
+                dropdownItems[i].addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    var iframes = document.getElementsByTagName('iframe');
+                    for (var j = 0; j < iframes.length; j++) {
+                        iframes[j].style.display = 'none';
+                    }
+
+                    var frameId = 'if-' + this.id;
+                    var frameMost = document.getElementById(frameId);
+                    if (frameMost) {
+                        frameMost.style.display = 'block';
+                    }
+                });
+            }
+        }
+
+        var navbar = document.querySelector('.navbar');
+        var navLinks = document.querySelectorAll('.nav-link');
+        var dropdownItems = document.querySelectorAll('.dropdown-item');
+        var dropdownMenus = document.querySelectorAll('.dropdown-menu');
+        var socialButtons = document.querySelectorAll('.btn-social');
+
+        document.querySelector('.theme-switch__checkbox').addEventListener('change', function (e) {
+            if (e.target.checked) {
+                // Tema oscuro
+                document.body.classList.add('tema-oscuro');
+                document.body.classList.remove('tema-claro');
+                navbar.classList.remove('navbar-light');
+                navbar.classList.add('navbar-dark');
+                navLinks.forEach(function (navLink) {
+                    navLink.classList.remove('text-black');
+                    navLink.classList.add('text-white');
+                });
+                dropdownItems.forEach(function (dropdownItem) {
+                    dropdownItem.classList.remove('text-white');
+                    dropdownItem.classList.add('text-white');
+                });
+                dropdownMenus.forEach(function (dropdownMenu) {
+                    dropdownMenu.classList.remove('bg-light');
+                    dropdownMenu.classList.add('text-white');
+                });
+                socialButtons.forEach(function (button) {
+                    button.classList.remove('btn-outline-dark');
+                    button.classList.add('btn-outline-light');
+                });
+            } else {
+                // Tema claro
+                document.body.classList.add('tema-claro');
+                document.body.classList.remove('tema-oscuro');
+                navbar.classList.remove('navbar-dark');
+                navbar.classList.add('navbar-light');
+                navLinks.forEach(function (navLink) {
+                    navLink.classList.remove('text-white');
+                    navLink.classList.add('text-black');
+                });
+                dropdownItems.forEach(function (dropdownItem) {
+                    dropdownItem.classList.remove('text-white');
+                    dropdownItem.classList.add('text-dark');
+                });
+                dropdownMenus.forEach(function (dropdownMenu) {
+                    dropdownMenu.classList.remove('bg-dark');
+                    dropdownMenu.classList.add('bg-light');
+                });
+                socialButtons.forEach(function (button) {
+                    button.classList.remove('btn-outline-light');
+                    button.classList.add('btn-outline-dark');
+                });
+            }
+        });
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+
+</html>

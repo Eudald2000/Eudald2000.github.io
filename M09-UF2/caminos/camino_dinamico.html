@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujo con Canvas</title>
+    <style>
+        #lienzo {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="lienzo" width="200" height="200"></canvas>
+    <script>
+        const canvas = document.getElementById("lienzo");
+        const ctx = canvas.getContext("2d");
+
+        let xLinia;
+        let yLinia;
+
+        canvas.addEventListener('mousemove', function (e) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            paredIzquierda();
+            paredDerecha();           
+            paredArriba();           
+            paredAbajo();
+            ctx.stroke();
+            xLinia = e.clientX - canvas.offsetLeft;
+            yLinia = e.clientY - canvas.offsetTop;
+        });
+
+        function paredIzquierda() {
+
+            let xPos = 0;
+            let yPos = 0;
+
+            for (let i = 0; i < 41; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yPos += 5
+            }
+        }
+
+        function paredDerecha() {
+            let xPos = 200;
+            let yPos = 0;
+
+            
+            for (let i = 0; i < 41; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yPos += 5
+            }
+        }
+
+        function paredArriba() {
+            let xPos = 0;
+            let yPos = 0;
+
+            
+            for (let i = 0; i < 41; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xPos += 5
+            }
+        }
+
+        function paredAbajo() {
+            let xPos = 0;
+            let yPos = 200;
+
+            
+            for (let i = 0; i < 41; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xPos += 5
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujo con Canvas</title>
+    <style>
+        #lienzo {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="lienzo" width="300" height="300"></canvas>
+    <script>
+        const canvas = document.getElementById("lienzo");
+        const ctx = canvas.getContext("2d");
+
+        let xLinia;
+        let yLinia;
+
+        // Calcula las lineas a pintar dependiendo la altura del lienzo
+        const numLines = Math.floor(canvas.height / 5);
+
+        canvas.addEventListener('mousemove', function (e) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            xLinia = e.clientX - canvas.offsetLeft;
+            yLinia = e.clientY - canvas.offsetTop;
+            paredIzquierda();
+            ctx.stroke();
+            paredDerecha();
+            ctx.stroke();
+            paredArriba();
+            ctx.stroke();
+            paredAbajo();
+            ctx.stroke();
+        });
+
+        function paredIzquierda() {
+            let xPos = 0;
+            let yPos = 0;
+
+            ctx.beginPath();
+            for (let i = 0; i < numLines; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yPos += 5
+            }
+        }
+
+        function paredDerecha() {
+            let xPos = canvas.width;
+            let yPos = 0;
+
+            ctx.beginPath();
+            for (let i = 0; i < numLines; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yPos += 5
+            }
+        }
+
+        function paredArriba() {
+            let xPos = 0;
+            let yPos = 0;
+
+            ctx.beginPath();
+            for (let i = 0; i < numLines; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xPos += 5
+            }
+        }
+
+        function paredAbajo() {
+            let xPos = 0;
+            let yPos = canvas.height;
+
+            ctx.beginPath();
+            for (let i = 0; i < numLines +1; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xPos += 5
+            }
+        }
+
+    </script>
+</body>
+</html> -->

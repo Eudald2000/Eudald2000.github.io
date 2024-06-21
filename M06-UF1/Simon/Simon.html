@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .circle {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 100%;
+            margin: 0 auto;
+            border: 2px solid black;
+            background-color: black;
+        }
+
+        .quarter {
+            width: calc(50% - 10px);
+            height: calc(50% - 10px);
+            position: absolute;
+            border: 5px solid black;
+            border-radius: 15%;
+        }
+
+        .pos1 {
+            border-top-left-radius: 100%;
+        }
+
+        .pos2 {
+            border-top-right-radius: 100%;
+            right: 0;
+        }
+
+        .pos3 {
+            border-bottom-left-radius: 100%;
+            bottom: 0;
+        }
+
+        .pos4 {
+            border-bottom-right-radius: 100%;
+            right: 0;
+            bottom: 0;
+        }
+
+        .rojo {
+            background-color: rgb(255, 162, 162);
+        }
+
+        #rojo:hover {
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+        }
+
+        .amarillo {
+            background-color: rgb(252, 252, 168);
+        }
+
+        #amarillo:hover {
+            cursor: pointer;
+            background-color: rgb(255, 255, 0);
+        }
+
+        .verde {
+            background-color: rgb(161, 255, 161);
+        }
+
+        #verde:hover {
+            cursor: pointer;
+            background-color: rgb(0, 255, 0);
+        }
+
+        .azul {
+            background-color: rgb(158, 158, 255);
+        }
+
+        #azul:hover {
+            cursor: pointer;
+            background-color: rgb(0, 0, 255);
+        }
+
+        .rojoFu {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .amarilloFu {
+            background-color: rgb(255, 255, 0);
+        }
+
+        .verdeFu {
+            background-color: rgb(0, 255, 0);
+        }
+
+        .azulFu {
+            background-color: rgb(0, 0, 255);
+        }
+
+        .center {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            background-color: rgb(0, 0, 0);
+            border-radius: 100%;
+            top: 20%;
+            left: 20%;
+        }
+
+        .newGameButton {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+        }
+
+
+        .newGameButton:hover {
+            background-color: #3e8e41
+        }
+
+        .newGameButton:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        body {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        <div id="rojo" class="quarter rojo pos1"></div>
+        <div id="amarillo" class="quarter amarillo pos2"></div>
+        <div id="verde" class="quarter verde pos3"></div>
+        <div id="azul" class="quarter azul pos4"></div>
+        <div class="center" id="center"></div>
+    </div>
+    <button id="nuevo" class="newGameButton">Juego Nuevo</button>
+    <div>
+        <h2>Juego Simon</h2>
+        En el juego de Simon, el objetivo es memorizar y repetir una secuencia de colores. Aquí está cómo funciona:
+        <ol>
+            <li><strong>Inicio del juego:</strong> Al hacer clic en el botón de “Juego Nuevo”, se inicia una secuencia
+                con 4 colores.</li>
+            <li><strong>Memorización:</strong> Debes prestar atención a la secuencia de colores que se muestra. Cada
+                color se iluminará en un orden específico.</li>
+            <li><strong>Repetición:</strong> Después de que se muestre la secuencia, debes repetirla haciendo clic en
+                los colores en el mismo orden.</li>
+            <li><strong>Aumento de dificultad:</strong> Si aciertas, el juego te mostrará la misma secuencia, pero
+                agregará un color nuevo al final. Esto aumenta la dificultad.</li>
+            <li><strong>Fin del juego:</strong> Si te equivocas y no repites la secuencia correctamente, el juego
+                termina. Debes iniciar un nuevo juego para intentarlo de nuevo.</li>
+        </ol>
+    </div>
+
+    <script src="Simon.js"></script>
+</body>
+
+</html>

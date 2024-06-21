@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujo con Canvas</title>
+    <style>
+        #lienzo {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="lienzo" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("lienzo");
+        const ctx = canvas.getContext("2d");
+
+        function dibujarLiniasArriba() {
+            let xPos = 200;
+            let yPos = 0;
+            let xLinia = 400;
+            let yLinia = 0;
+            let xLinia2 = 0;
+
+            ctx.beginPath();
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yLinia = yLinia + 8;
+            }
+
+            yLinia = 0;
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia2, yLinia);
+                yLinia = yLinia + 8;
+            }
+        }
+
+        function dibujarLiniasDebajo() {
+            let xPos = 200;
+            let yPos = 400;
+            let xLinia = 400;
+            let yLinia = 200;
+            let xLinia2 = 0;
+
+            ctx.beginPath();
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                yLinia = yLinia + 8;
+            }
+
+            yLinia = 200;
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia2, yLinia);
+                yLinia = yLinia + 8;
+            }
+        }
+
+        function dibujarLiniasIzquierda() {
+            let xPos = 0;
+            let yPos = 200;
+            let xLinia = 0;
+            let yLinia = 0;
+            let yLinia2 = 400;
+
+            ctx.beginPath();
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xLinia = xLinia + 8;
+            }
+            xLinia = 0;
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia2);
+                xLinia = xLinia + 8;
+            }
+        }
+
+        function dibujarLiniasDerecha() {
+            let xPos = 400;
+            let yPos = 200;
+            let xLinia = 200;
+            let yLinia = 0;
+            let yLinia2 = 400;
+
+            ctx.beginPath();
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia);
+                xLinia = xLinia + 8;
+            }
+            xLinia = 200;
+            for (let i = 0; i < 26; i++) {
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xLinia, yLinia2);
+                xLinia = xLinia + 8;
+            }
+        }
+
+        dibujarLiniasArriba();
+        ctx.stroke();
+        dibujarLiniasDebajo();
+        ctx.stroke();
+        dibujarLiniasIzquierda();
+        ctx.stroke();
+        dibujarLiniasDerecha();
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

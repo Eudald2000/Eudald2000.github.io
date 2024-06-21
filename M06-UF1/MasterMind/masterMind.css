@@ -1,0 +1,55 @@
+.juego {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.none{
+    display: none;
+}
+.noClick{
+    pointer-events: none;
+}
+.circulo {
+    width: 75px;
+    border-radius: 100%;
+    border: 2px solid black;
+    height: 75px;
+}
+.solucion{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80px;
+    border: 2px solid black;
+    align-content: space-around;
+    justify-content: space-around;
+}
+.circuloSol{
+    width: 25px;
+    border-radius: 100%;
+    border: 2px solid black;
+    height: 25px;
+}
+.rojo{
+    background-color: red;
+}
+.verde{
+    background-color: green;
+}
+.amarillo{
+background-color: yellow;
+}
+.azul{
+    background-color: blue;
+}
+.naranja{
+    background-color: orange;
+}
+.lila{
+    background-color: purple;
+}
+.blanco{
+    background-color: white;
+}
+.negro{
+    background-color: black;
+}
