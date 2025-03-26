@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,19 +9,15 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="newCSS.css">
-  <style>
-    
-  </style>
 </head>
 
 <header>
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand menu-item" href="index.html">Sobre mí</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contents"
-        aria-controls="navbarSupportedContent">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contents">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="contents">
         <ul class="navbar-nav me-auto mb-2">
           <li class="nav-item dropdown">
@@ -29,7 +26,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-header" onclick="loadContent('frontEnd.html')">FrontEnd</a></li>
-              <li><a class="dropdown-header" onclick="loadContent('backEnd.html')">End-to-End</a></li>
+              <!-- <li><a class="dropdown-header" onclick="loadContent('backEnd.html')">End-to-End</a></li> -->
             </ul>
           </li>
           <li class="nav-item menu">
@@ -38,7 +35,7 @@
             </a>
           </li>
           <li class="nav-item menu">
-            <a class="nav-link menu-toggle menu-item" onclick="loadContent('contact.html')" ondata-bs-toggle="menu">
+            <a class="nav-link menu-toggle menu-item" onclick="loadContent('contact.html')" data-bs-toggle="menu">
               Contacto
             </a>
           </li>
@@ -85,7 +82,7 @@
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     fetch('presentacion.html')
       .then(response => response.text())
       .then(data => {
@@ -117,7 +114,7 @@
 
   function registerIframeLinks() {
     document.querySelectorAll('a[target="projectFrame"]').forEach(link => {
-      link.addEventListener('click', function(event) {
+      link.addEventListener('click', function (event) {
         event.preventDefault();
         document.querySelector('iframe[name="projectFrame"]').src = this.href;
         showIframe();
