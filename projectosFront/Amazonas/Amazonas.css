@@ -1,0 +1,80 @@
+.marron {
+  background-color: rgb(94, 54, 2);
+}
+
+.negro {
+  background-color: rgb(143, 143, 143);
+}
+
+.board div {
+  padding: 0;
+  display: flex;
+}
+
+/* QUADRADOS DENTRO DE LAS FILAS */
+.board div div {
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  /* Necesario para posicionar elementos hijos */
+}
+
+.bordeNegro {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.reinaNegra img,
+.reinaBlanca img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flecha {
+  background-color: black;
+}
+
+.borde {
+  border: 2px solid rgb(255, 0, 0);
+
+}
+
+.bordeVerde {
+  border: 2px solid rgb(0, 255, 0);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url('img/fondo.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Esto hará que la imagen cubra todo el espacio disponible */
+}
+
+#newGame {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(94, 54, 2); /* Marrón del tablero */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newGame:hover {
+  background-color: rgb(143, 92, 50); /* Marrón más claro al pasar el cursor */
+}
+
+#newGame:active {
+  background-color: rgb(70, 40, 10); /* Marrón más oscuro al hacer clic */
+}

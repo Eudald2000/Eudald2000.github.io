@@ -4,6 +4,11 @@ var coloresFuertes = ['rojoFu', 'amarilloFu', 'verdeFu', 'azulFu'];
 let score = document.getElementById('score');
 var sequence = [];
 
+// Desactivamos los colores al iniciarc la página
+colores.forEach(function (color) {
+  document.getElementById(color).style.pointerEvents = 'none';
+});
+
 // Esta función genera una nueva secuencia de 4 colores aleatorios
 function generateSequence() {
   sequence = [];
@@ -47,6 +52,11 @@ function playSequence() {
 //INICIAR JUEGO NUEVO (otra forma de ejecutar el codigo)
 document.getElementById('nuevo').addEventListener('click', startNewGame);
 function startNewGame() {
+  // Habilitar los colores
+  colores.forEach(function (color) {
+    document.getElementById(color).style.pointerEvents = 'auto';
+  });
+  score.innerHTML = 'Colores: 4';
   generateSequence();
   playSequence();
 }
