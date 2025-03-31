@@ -1,0 +1,96 @@
+html,
+body {
+  background-color: #ee919133;
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  background-color: rgba(156, 237, 237, 0.61);
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: 80%;
+  background-color: rgba(156, 237, 237, 0.61);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.fila {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 25%;
+  margin: 1%;
+}
+
+.card {
+  width: 20%;
+  height: 100%;
+  margin: 1%;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.interrogante{
+  background-image: url('img/interrogante.jpg') !important;
+  cursor: pointer;
+}
+
+.ainz{
+  background-image: url('img/ainz.jpg');
+}
+
+.itadori{
+  background-image: url('img/itadori.jpg');
+}
+
+.gojo{
+  background-image: url('img/gojo.jpg');
+}
+
+.ichigo{
+  background-image: url('img/ichigo.jpg');
+}
+
+.killua{
+  background-image: url('img/killua.jpg');
+}
+
+.luffy{
+  background-image: url('img/luffy.jpg');
+}
+
+.naruto{
+  background-image: url('img/naruto.jpg');
+}
+
+.senku{
+  background-image: url('img/senku.jpg');
+} 
+
+.sjw{
+  background-image: url('img/sjw.jpg');
+}
+
+.tanjiro{
+  background-image: url('img/tanjiro.jpg');
+} 
+
