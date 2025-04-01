@@ -1,11 +1,11 @@
 html,
 body {
-  background-color: #ee919133;
   height: 100vh;
   margin: 0;
   width: 100vw;
   display: flex;
   justify-content: center;
+  background: linear-gradient(135deg, #f7020237, #03f1273c);
 }
 
 .container {
@@ -15,7 +15,6 @@ body {
   flex-direction: column;
   width: 80%;
   height: 100%;
-  background-color: rgba(156, 237, 237, 0.61);
 }
 
 .board {
@@ -25,9 +24,7 @@ body {
   flex-direction: column;
   width: 90%;
   height: 80%;
-  background-color: rgba(156, 237, 237, 0.61);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .fila {
@@ -49,48 +46,100 @@ body {
   background-position: center;
 }
 
-.interrogante{
+h1 {
+  font-weight: bold;
+  color: #000000; /* Gris oscuro suave */
+  text-align: center;
+  margin: 20px 0; /* Espaciado superior e inferior */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1); /* Sombra ligera para el texto */
+  letter-spacing: 5px; /* Espaciado entre letras */
+}
+
+.interrogante {
   background-image: url('img/interrogante.jpg') !important;
   cursor: pointer;
 }
 
-.ainz{
+.correcto {
+  border: 2px solid rgb(0, 255, 0);
+  opacity: 0.7;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.ainz {
   background-image: url('img/ainz.jpg');
 }
 
-.itadori{
+.itadori {
   background-image: url('img/itadori.jpg');
 }
 
-.gojo{
+.gojo {
   background-image: url('img/gojo.jpg');
 }
 
-.ichigo{
+.ichigo {
   background-image: url('img/ichigo.jpg');
 }
 
-.killua{
+.killua {
   background-image: url('img/killua.jpg');
 }
 
-.luffy{
+.luffy {
   background-image: url('img/luffy.jpg');
 }
 
-.naruto{
+.naruto {
   background-image: url('img/naruto.jpg');
 }
 
-.senku{
+.senku {
   background-image: url('img/senku.jpg');
-} 
+}
 
-.sjw{
+.sjw {
   background-image: url('img/sjw.jpg');
 }
 
-.tanjiro{
+.tanjiro {
   background-image: url('img/tanjiro.jpg');
-} 
+}
 
+.restart-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #74b9ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.restart-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.restart-button:active {
+  background-color: #003f7f;
+  transform: scale(0.95);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 1%;
+}
+
+#marcador {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
