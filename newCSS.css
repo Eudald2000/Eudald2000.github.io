@@ -20,6 +20,11 @@ header {
   border-bottom: 2px solid #333;
 }
 
+.navbar-nav .nav-link,
+.dropdown-menu .dropdown-header {
+  cursor: pointer;
+}
+
 main {
   flex: 1;
   padding-top: 70px;
