@@ -3,7 +3,7 @@ var colores = ['rojo', 'amarillo', 'verde', 'azul'];
 var coloresFuertes = ['rojoFu', 'amarilloFu', 'verdeFu', 'azulFu'];
 let score = document.getElementById('score');
 var sequence = [];
-
+const nuevo = document.getElementById('nuevo');
 // Desactivamos los colores al iniciarc la página
 colores.forEach(function (color) {
   document.getElementById(color).style.pointerEvents = 'none';
@@ -19,6 +19,9 @@ function generateSequence() {
 }
 
 function playSequence() {
+
+  nuevo.disabled = true
+
   colores.forEach(function (color) {
     document.getElementById(color).style.pointerEvents = 'none';
   });
@@ -46,12 +49,15 @@ function playSequence() {
     colores.forEach(function (color) {
       document.getElementById(color).style.pointerEvents = 'auto';
     });
+    nuevo.disabled = false;
   }, sequence.length * 1500);
 }
 
 //INICIAR JUEGO NUEVO (otra forma de ejecutar el codigo)
-document.getElementById('nuevo').addEventListener('click', startNewGame);
+nuevo.addEventListener('click', startNewGame);
 function startNewGame() {
+
+  userSequence = [];
   // Habilitar los colores
   colores.forEach(function (color) {
     document.getElementById(color).style.pointerEvents = 'auto';

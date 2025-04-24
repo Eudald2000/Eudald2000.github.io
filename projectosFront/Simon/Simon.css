@@ -107,20 +107,28 @@
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #55ca59;
   border: none;
   border-radius: 15px;
+  box-shadow: 0 5px #666;
 }
 
 
 .newGameButton:hover {
-  background-color: #3e8e41
+  background-color: #43fb49
 }
 
 .newGameButton:active {
   background-color: #3e8e41;
-  box-shadow: 0 5px #666;
   transform: translateY(4px);
+  box-shadow:0 5px #f0f0f0;
+}
+.newGameButton:disabled {
+  background-color: #a5a5a5; /* Cambia el color de fondo */
+  box-shadow: none; /* Elimina la sombra */
+  transform: none; /* Elimina el efecto de transformación */
+  opacity: 0.5; /* Reduce la opacidad */
+  cursor: not-allowed; /* Cambia el cursor */
 }
 
 body {
