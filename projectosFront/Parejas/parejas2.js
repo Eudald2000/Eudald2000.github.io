@@ -115,7 +115,7 @@ function comprobarPareja() {
       bloqueo = false;
       turnos += 1;
       actualizarMarcador();
-    }, 500);
+    }, 1000);
   } else {
     console.log("No son iguales");
     setTimeout(() => {
@@ -131,7 +131,7 @@ function comprobarPareja() {
       bloqueo = false;
       turnos += 1;
       actualizarMarcador();
-    }, 500);
+    }, 1000);
   }
   esGanador()
 }
