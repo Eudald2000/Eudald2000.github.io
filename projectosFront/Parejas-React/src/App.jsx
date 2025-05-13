@@ -8,91 +8,76 @@ import { Fila } from './components/Fila.jsx'
 import { Card } from './components/Card.jsx'
 
 function App () {
-  const [listImg, setListImg] = useState([
+  const images = [
     '/ainz.jpg', '/gojo.jpg', '/ichigo.jpg', '/itadori.jpg', '/luffy.jpg',
-    '/naruto.jpg', '/senku.jpg', '/sjw.jpg', '/tanjiro.jpg', '/ainz.jpg',
-    '/gojo.jpg', '/ichigo.jpg', '/itadori.jpg', '/luffy.jpg', '/naruto.jpg',
-    '/senku.jpg', '/sjw.jpg', '/tanjiro.jpg', '/killua.jpg', '/killua.jpg'
-  ])
-  const [carta1, setCarta1] = useState(null)
-  const [carta2, setCarta2] = useState(null)
-  const [shuffledImages, setShuffledImages] = useState([])
+    '/naruto.jpg', '/senku.jpg', '/sjw.jpg', '/tanjiro.jpg', '/killua.jpg'
+  ]
 
-  // Mezclar las imágenes
-  useEffect(() => {
-    setShuffledImages([...listImg].sort(() => Math.random() - 0.5))
-  }, [])
+  // Duplicar y mezclar las imágenes
+  const [cards, setCards] = useState(() =>
+    [...images, ...images]
+      .sort(() => Math.random() - 0.5)
+      .map(img => ({ image: img, id: Math.random() }))
+  )
 
-  const seleccionarCarta = (e) => {
-    const cartaSeleccionada = e.target // Asegúrate de que el evento sea válido
-    if (cartaSeleccionada) {
-      if (carta1 === null) {
-        setCarta1(cartaSeleccionada)
-      } else if (carta1 && !carta2) {
-        setCarta2(cartaSeleccionada)
-      }
+  const [flippedCards, setFlippedCards] = useState([])
+  const [matchedCards, setMatchedCards] = useState([])
+  const [disabledClick, setDisabledClick] = useState(false)
+
+  const handleCardClick = (index) => {
+    if (
+      disabledClick ||
+      flippedCards.includes(index) ||
+      matchedCards.includes(cards[index].image)
+    ) return
+
+    const newFlipped = [...flippedCards, index]
+    setFlippedCards(newFlipped)
+
+    if (newFlipped.length === 2) {
+      checkForMatch(newFlipped)
     }
   }
 
-  const comprobarPareja = () => {
-    if (carta1.src === carta2.src) {
-      console.log('Son iguales')
+  const checkForMatch = (flipped) => {
+    setDisabledClick(true)
+    const [first, second] = flipped
+
+    if (cards[first].image === cards[second].image) {
+      setMatchedCards(prev => [...prev, cards[first].image])
+      resetTurn()
     } else {
-      console.log('No son iguales')
+      setTimeout(() => resetTurn(), 1000)
     }
-    setCarta1(null)
-    setCarta2(null)
   }
 
-  useEffect(() => {
-    if (carta1 && carta2) {
-      comprobarPareja()
-    }
-  }, [carta1, carta2])
+  const resetTurn = () => {
+    setFlippedCards([])
+    setDisabledClick(false)
+  }
+
+  const renderRow = (start, end) => {
+    return cards.slice(start, end).map((card, index) => (
+      <Card
+        key={card.id}
+        image={card.image}
+        isFlipped={flippedCards.includes(start + index) || matchedCards.includes(card.image)}
+        onFlip={() => handleCardClick(start + index)}
+      />
+    ))
+  }
+
   return (
-    <>
-      <Container>
-        <Board>
-          {/* Fila 1 */}
-          <Fila>
-            <Card image={shuffledImages[0]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[1]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[2]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[3]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[4]} mostrarCarta={seleccionarCarta} />
-          </Fila>
-
-          {/* Fila 2 */}
-          <Fila>
-            <Card image={shuffledImages[5]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[6]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[7]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[8]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[9]} mostrarCarta={seleccionarCarta} />
-          </Fila>
-
-          {/* Fila 3 */}
-          <Fila>
-            <Card image={shuffledImages[10]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[11]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[12]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[13]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[14]} mostrarCarta={seleccionarCarta} />
-          </Fila>
-
-          {/* Fila 4 */}
-          <Fila>
-            <Card image={shuffledImages[15]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[16]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[17]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[18]} mostrarCarta={seleccionarCarta} />
-            <Card image={shuffledImages[19]} mostrarCarta={seleccionarCarta} />
-          </Fila>
-        </Board>
-        <Controls />
-        <PopUp />
-      </Container>
-    </>
+    <Container>
+      <Board>
+        <Fila>{renderRow(0, 5)}</Fila>
+        <Fila>{renderRow(5, 10)}</Fila>
+        <Fila>{renderRow(10, 15)}</Fila>
+        <Fila>{renderRow(15, 20)}</Fila>
+      </Board>
+      <Controls />
+      <PopUp />
+    </Container>
   )
 }
 

@@ -1,18 +1,11 @@
-import { useState } from 'react'
-
-export const Card = ({ image, mostrarCarta }) => {
-  const [volteada, setVolteada] = useState(false)
-
-  const handleClick = (e) => {
-    setVolteada(!volteada)
-    mostrarCarta(e) // Pasar el evento y la imagen
-  }
-
+export const Card = ({ image, isFlipped, onFlip }) => {
   return (
-    <>
-    <div className="card" >
-      <img onClick={handleClick} src={volteada ? image : '/interrogante.jpg'} alt="Carta" />
+    <div className="card" onClick={onFlip}>
+      <img
+        src={isFlipped ? image : '/interrogante.jpg'}
+        alt="Carta"
+        style={{ pointerEvents: isFlipped ? 'none' : 'auto' }}
+      />
     </div>
-    </>
   )
 }
