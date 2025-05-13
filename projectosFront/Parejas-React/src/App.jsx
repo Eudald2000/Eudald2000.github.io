@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './parejas.css'
 import { Container } from './components/Container.jsx'
 import { Board } from './components/Board.jsx'
@@ -16,8 +16,12 @@ function App () {
   ])
   const [carta1, setCarta1] = useState(null)
   const [carta2, setCarta2] = useState(null)
+  const [shuffledImages, setShuffledImages] = useState([])
+
   // Mezclar las imágenes
-  const shuffledImages = [...listImg].sort(() => Math.random() - 0.5)
+  useEffect(() => {
+    setShuffledImages([...listImg].sort(() => Math.random() - 0.5))
+  }, [])
 
   const seleccionarCarta = (e) => {
     const cartaSeleccionada = e.target // Asegúrate de que el evento sea válido
@@ -30,6 +34,21 @@ function App () {
     }
   }
 
+  const comprobarPareja = () => {
+    if (carta1.src === carta2.src) {
+      console.log('Son iguales')
+    } else {
+      console.log('No son iguales')
+    }
+    setCarta1(null)
+    setCarta2(null)
+  }
+
+  useEffect(() => {
+    if (carta1 && carta2) {
+      comprobarPareja()
+    }
+  }, [carta1, carta2])
   return (
     <>
       <Container>

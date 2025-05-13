@@ -3,10 +3,9 @@ import { useState } from 'react'
 export const Card = ({ image, mostrarCarta }) => {
   const [volteada, setVolteada] = useState(false)
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setVolteada(!volteada)
-    mostrarCarta(image) // Pasar el evento y la imagen
-    console.log()
+    mostrarCarta(e) // Pasar el evento y la imagen
   }
 
   return (
