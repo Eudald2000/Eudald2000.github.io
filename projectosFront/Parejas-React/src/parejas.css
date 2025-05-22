@@ -16,7 +16,6 @@ body,
   flex-direction: column;
   width: 80%;
   height: 100%;
-  border: 1px solid black;
 }
 
 .board {
@@ -157,46 +156,4 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-/* PARA JUGAR CON EL PAREJAS.JS */
-
-.ainz {
-  background-image: url('img/ainz.jpg');
-}
-
-.itadori {
-  background-image: url('img/itadori.jpg');
-}
-
-.gojo {
-  background-image: url('img/gojo.jpg');
-}
-
-.ichigo {
-  background-image: url('img/ichigo.jpg');
-}
-
-.killua {
-  background-image: url('img/killua.jpg');
-}
-
-.luffy {
-  background-image: url('img/luffy.jpg');
-}
-
-.naruto {
-  background-image: url('img/naruto.jpg');
-}
-
-.senku {
-  background-image: url('img/senku.jpg');
-}
-
-.sjw {
-  background-image: url('img/sjw.jpg');
-}
-
-.tanjiro {
-  background-image: url('img/tanjiro.jpg');
 }

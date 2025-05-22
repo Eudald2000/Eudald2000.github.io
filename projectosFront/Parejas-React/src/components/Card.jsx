@@ -1,10 +1,17 @@
-export const Card = ({ image, isFlipped, onFlip }) => {
+// Card.jsx
+export const Card = ({ image, volteada, onClick }) => {
   return (
-    <div className="card" onClick={onFlip}>
+    // Contenedor de la carta
+    <div
+      className="card"
+      onClick={volteada ? null : onClick} // Solo permite clics si no está volteada
+    >
+      {/* Imagen que muestra la carta o el interrogante */}
       <img
-        src={isFlipped ? image : '/interrogante.jpg'}
+        src={volteada ? image : '/interrogante.jpg'} // Cambia la imagen basado en el estado
         alt="Carta"
-        style={{ pointerEvents: isFlipped ? 'none' : 'auto' }}
+        // Cambia el cursor para indicar interactividad
+        style={{ cursor: volteada ? 'default' : 'pointer' }}
       />
     </div>
   )
