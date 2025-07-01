@@ -14,7 +14,7 @@
 <header>
   <nav class="navbar navbar-expand-sm bg-body-secondary">
     <div class="container">
-      <a class="navbar-brand fw-bold text-primary m-2" href="#" onclick="loadContent('presentacion.html');">Sobre mí</a>
+      <a class="navbar-brand fw-bold text-primary m-2" href="#" id="sobreMi">Sobre mí</a>
       <!-- Botón de menú hamburguesa -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,18 +28,18 @@
               Mis proyectos
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" onclick="loadContent('frontEnd.html')">Front-End</a></li>
-              <li><a class="dropdown-item" onclick="loadContent('backEnd.html')">End-to-End</a></li>
-              <li><a class="dropdown-item" onclick="loadContent('react.html')">React</a></li>
+              <li><a id="frontEnd" class="dropdown-item">Front-End</a></li>
+              <li><a id="backEnd" class="dropdown-item">End-to-End</a></li>
+              <li><a id="react" class="dropdown-item">React</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link mt-2" onclick="loadContent('stack.html')" data-bs-toggle="menu">
+            <a class="nav-link mt-2" id="stack" data-bs-toggle="menu">
               Stack tecnológico
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mt-2" onclick="loadContent('contact.html')" data-bs-toggle="menu">
+            <a class="nav-link mt-2" id='contact' data-bs-toggle="menu">
               Contacto
             </a>
           </li>
@@ -69,7 +69,7 @@
 </div>
 
 <main id="main-content" class="container mt-5">
-  <!-- Aquí se cargará el contenido específico de cada página -->
+  <!-- Contenido específico de cada página -->
 </main>
 
 <footer class="mt-5 bg-body-secondary">
