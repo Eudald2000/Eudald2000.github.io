@@ -69,6 +69,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 1rem;
 }
 
 #newGame:hover {
@@ -77,4 +78,40 @@ body {
 
 #newGame:active {
   background-color: rgb(70, 40, 10); /* Marrón más oscuro al hacer clic */
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.board {
+  min-width: 520px;
+}
+
+.instrucciones {
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  padding: 24px 32px;
+  max-width: 350px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.instrucciones h1 {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+
+.instrucciones ol {
+  padding-left: 20px;
+}
+
+.instrucciones li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
