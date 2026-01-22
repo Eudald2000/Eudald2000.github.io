@@ -1,0 +1,136 @@
+{
+    "intro": "Me encanta aprender nuevas tecnologías y experimentar con diferentes herramientas.\nEstas son las principales tecnologías, lenguajes y herramientas con las que he trabajado:",
+    "skills": [
+        {
+            "title": "Lenguajes & Bases de Datos",
+            "items": [
+                {
+                    "icon": "images/skills/js.png",
+                    "title": "JavaScript"
+                },
+                {
+                    "icon": "images/skills/java.png",
+                    "title": "Java"
+                },
+                {
+                    "icon": "images/skills/css.png",
+                    "title": "CSS"
+                },
+                {
+                    "icon": "images/skills/html.png",
+                    "title": "HTML"
+                },
+                {
+                    "icon": "images/skills/typescript.png",
+                    "title": "TypeScript"
+                },
+                {
+                    "icon": "images/skills/mysql.png",
+                    "title": "MySQL"
+                },
+                {
+                    "icon": "images/skills/mongo.png",
+                    "title": "MongoDB"
+                },
+                {
+                    "icon": "images/skills/postgres.png",
+                    "title": "PostgreSQL"
+                },
+                {
+                    "icon": "images/skills/xml.png",
+                    "title": "XML"
+                }
+            ]
+        },
+        {
+            "title": "Frameworks & Tecnologías",
+            "items": [
+                {
+                    "icon": "images/skills/react.png",
+                    "title": "React"
+                },
+                {
+                    "icon": "images/skills/nodejs.png",
+                    "title": "Node.js"
+                },
+                {
+                    "icon": "images/skills/laravel.png",
+                    "title": "Laravel"
+                },
+                {
+                    "icon": "images/skills/bootstrap.png",
+                    "title": "Bootstrap"
+                },
+                {
+                    "icon": "images/skills/tailwind.png",
+                    "title": "Tailwind CSS"
+                },
+                {
+                    "icon": "images/skills/jquery.png",
+                    "title": "jQuery"
+                },
+                {
+                    "icon": "images/skills/next.png",
+                    "title": "Next.js"
+                },
+                {
+                    "icon": "images/skills/vite.png",
+                    "title": "Vite"
+                }
+            ]
+        },
+        {
+            "title": "Herramientas & Plataformas",
+            "items": [
+                {
+                    "icon": "images/skills/git.png",
+                    "title": "Git"
+                },
+                {
+                    "icon": "images/skills/gitlab.png",
+                    "title": "GitLab"
+                },
+                {
+                    "icon": "images/skills/github.png",
+                    "title": "GitHub"
+                },
+                {
+                    "icon": "images/skills/npm.png",
+                    "title": "NPM"
+                },
+                {
+                    "icon": "images/skills/vscode.png",
+                    "title": "VS Code"
+                },
+                {
+                    "icon": "images/skills/eclipse.png",
+                    "title": "Eclipse"
+                },
+                {
+                    "icon": "images/skills/docker.png",
+                    "title": "Docker"
+                },
+                {
+                    "icon": "images/skills/kubernetes.png",
+                    "title": "Kubernetes"
+                },
+                {
+                    "icon": "images/skills/jenkins.png",
+                    "title": "Jenkins"
+                },
+                {
+                    "icon": "images/skills/xampp.png",
+                    "title": "XAMPP"
+                },
+                {
+                    "icon": "images/skills/auth.png",
+                    "title": "Google Auth"
+                },
+                {
+                    "icon": "images/skills/WordPress.png",
+                    "title": "WordPress"
+                }
+            ]
+        }
+    ]
+}

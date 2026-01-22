@@ -1,0 +1,22 @@
+{
+    "education":[
+        {
+            "title": "Octubre 2022 - Junio 2024",
+            "cardTitle": "Desarrollo de aplicaciones web",
+            "cardSubtitle":"Institut de Badia del Vallès",
+            "cardDetailedText": "JavaScript, Java, HTML, CSS, MYSQL",
+            "icon" : {
+                "src": "images/education/LOGO-FP-BADIA-POSITIU.png"
+            }
+        },
+        {
+            "title": "Marzo 2025 - Noviembre 2025",
+            "cardTitle": "Confecció i publicacio de pagines web",
+            "cardSubtitle":"Curso del SOC (IFCD0110) ",
+            "cardDetailedText": "HTML, JS, CSS, WordPress",
+            "icon" : {
+                "src": "images/education/senyal.jpg"
+            }
+        }
+    ]
+}

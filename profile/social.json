@@ -1,0 +1,16 @@
+{
+    "social": [
+        {
+            "network" : "linkedin",
+            "href": "https://www.linkedin.com/in/eudald-bosch/"
+        },
+        {
+            "network" : "github",
+            "href": "https://github.com/Eudald2000"
+        },
+        {
+            "network" : "email",
+            "href": "mailto:eudald08210@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "projects" : [
+        {
+            "image" : "images/projects/amazonas.png",
+            "title": "Amazonas",
+            "bodyText": "- Manejo de eventos.\n - Manejo de errores. \n - Codigo comentado y limpio",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/Eudald2000/Amazonas"
+                },
+                {
+                    "text": "Live",
+                    "href": "https://eudald2000.github.io/Amazonas/Amazonas.html"
+                }
+            ],
+            "tags" : [
+                "JavaScript puro",
+                "CSS"
+            ]
+        },
+        {
+            "image" : "images/projects/Pokedex.png",
+            "title": "Buscador Pokemon",
+            "bodyText": "- Busca uno o varios pokemons.\n - Mira sus estadisticas.\n - Busca por id o nombre (completo o parcial)",
+            "links": [
+                {
+                    "text": "GitHub code",
+                    "href": "https://github.com/Eudald2000/Buscador-Pokemon"
+                },
+                {
+                    "text": "Live",
+                    "href": "https://eudald2000.github.io/Buscador-Pokemon/"
+                }
+            ],
+            "tags" : [
+                "React",
+                "CSS",
+                "BootStrap",
+                "API"
+            ]
+        },
+        {
+            "image" : "images/projects/biblioteca.png",
+            "title": "Biblioteca",
+            "bodyText": "- Muestra los libros disponibles.\n - La informacion de cada libro.\n - Inicia sesion como admin para administrarlo",
+            "links": [
+                {
+                    "text": "GitHub code",
+                    "href": "https://github.com/Eudald2000/Biblioteca-Laravel"
+                },
+                {
+                    "text": "Video",
+                    "href": "https://www.youtube.com/watch?v=WsaxyLQ_DRg"
+                }
+            ],
+            "tags" : [
+                "Laravel",
+                "PHP",
+                "Blade",
+                "Admin Menu",
+                "Gestion Usuarios",
+                "Gestion Inventario"
+            ]
+        },
+        {
+            "image" : "images/projects/TheCastLab.png",
+            "title": "TheCastLab",
+            "bodyText": "Página creada por encargo según las especificaciones del cliente.",
+            "links": [
+                {
+                    "text": "GitHub code",
+                    "href": "https://github.com/Eudald2000/The_Cast_Lab"
+                },
+                {
+                    "text": "Live",
+                    "href": "https://eudald2000.github.io/The_Cast_Lab/"
+                }
+            ],
+            "tags" : [
+                "React",
+                "BootStrap",
+                "Json",
+                "Escalable",
+                "Facil de modificar"
+            ]
+        }
+    ]
+}

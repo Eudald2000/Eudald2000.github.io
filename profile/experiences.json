@@ -1,0 +1,13 @@
+{
+    "experiences": [
+        {
+            "title": "Desarrollador web",
+            "subtitle": "4i (Ingeniería Integración e Implantaciones informáticas, S.L.)",
+            "workType": "Practicas",
+            "workDescription": [
+                "Colaboré en la migración de una aplicación de gestión de empleados, desarrollando funcionalidades para administrar proyectos, horarios e incidencias, además de dar mantenimiento continuo al sistema."
+            ],
+            "dateText": "08/2023 – 08/24"
+        }
+    ]
+}

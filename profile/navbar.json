@@ -1,0 +1,39 @@
+{
+    "logo" : {
+        "source": "images/logo.png",
+        "height" : 45,
+        "width" : 50
+    },
+    "sections": [
+        {
+            "title": "Home",
+            "href": "/"
+        },
+        {
+            "title": "Sobre mi",
+            "href": "/about"
+        },
+        {
+            "title": "Habilidades",
+            "href": "/skills"
+        },
+        {
+            "title": "Educación",
+            "href": "/education"
+        },
+        {
+            "title": "Experiencia",
+            "href": "/experience"
+        },
+        {
+            "title": "Projectos",
+            "href": "/projects"
+        },
+        {
+            "title": "Mi CV",
+            "href": "https://drive.google.com/file/d/1BN9HICacxk4GQDnFFYblZJfYyb7v_4l_/view?usp=sharing",
+            "type": "link"
+        }
+    ]
+
+}
