@@ -9,7 +9,9 @@
       "Bash(mv _tmp/.* .)",
       "Bash(rmdir _tmp)",
       "Bash(npm install:*)",
-      "Bash(npx astro:*)"
+      "Bash(npx astro:*)",
+      "Bash(uipro init:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
