@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(npm --version)",
+      "Bash(gh repo:*)",
+      "Bash(npm create:*)",
+      "Bash(mv _tmp/* .)",
+      "Bash(mv _tmp/.* .)",
+      "Bash(rmdir _tmp)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)"
+    ]
+  }
+}

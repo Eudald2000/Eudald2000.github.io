@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects",
+    "cv": "CV"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Eudald Bosch",
+    "roles": ["Web Developer", "Front-End Engineer", "Astro Specialist"],
+    "cta": "View projects",
+    "available": "Available for projects"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "Web developer passionate about crafting elegant and performant digital experiences."
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "experience": {
+    "title": "Experience"
+  },
+  "education": {
+    "title": "Education"
+  },
+  "projects": {
+    "title": "Projects",
+    "view_code": "View code",
+    "view_demo": "View demo"
+  },
+  "cv": {
+    "title": "Resume",
+    "download": "Download CV"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
