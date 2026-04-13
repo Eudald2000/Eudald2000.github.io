@@ -1,0 +1,78 @@
+---
+import { t } from '@/i18n/utils.js';
+import LangSwitcher from './LangSwitcher.astro';
+
+const { lang } = Astro.props;
+
+const navLinks = [
+  { key: 'about',      href: '#about' },
+  { key: 'skills',     href: '#skills' },
+  { key: 'experience', href: '#experience' },
+  { key: 'education',  href: '#education' },
+  { key: 'projects',   href: '#projects' },
+  { key: 'cv',         href: '#cv' },
+];
+---
+<header class="glass-nav fixed top-0 left-0 right-0 z-50">
+  <nav class="container-section flex items-center justify-between h-16">
+
+    <!-- Logo -->
+    <a href={`/${lang}/`} class="text-[var(--accent)] font-bold text-lg tracking-tight">
+      EB<span class="text-[var(--text-primary)]">.</span>
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="hidden md:flex items-center gap-6">
+      {navLinks.map(({ key, href }) => (
+        <li>
+          <a href={href} class="nav-link">{t(`nav.${key}`, lang)}</a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Right: LangSwitcher + hamburger -->
+    <div class="flex items-center gap-4">
+      <LangSwitcher currentLang={lang} />
+      <button
+        id="menu-toggle"
+        class="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span class="block w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-200"></span>
+        <span class="block w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-200"></span>
+        <span class="block w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-200"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--glass-border)]">
+    <ul class="flex flex-col gap-4 px-6 py-5">
+      {navLinks.map(({ key, href }) => (
+        <li>
+          <a href={href} class="nav-link block text-base">{t(`nav.${key}`, lang)}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Cierra el menu al pulsar un link
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

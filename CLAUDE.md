@@ -151,7 +151,7 @@ export function t(key, lang = 'es') {
 ## Flujo de Trabajo (HITL)
 
 1. Activar `/plan` antes de cambios significativos. Esperar aprobación explícita.
-2. Sin commits automáticos. Mostrar diff y esperar confirmación.
+2. Commits solo al terminar un hito completo, o cuando el usuario lo pida explícitamente. Sin commits intermedios por cambios parciales.
 3. Lanzar subagentes en paralelo para subtareas independientes (secciones distintas, data vs. UI, etc.). No esperar que el usuario lo pida.
 4. Verificar render visual con `webapp-testing` (Playwright) tras cada sección nueva.
 5. Resumen estructurado tras cada hito: archivos modificados, cambios, componentes nuevos, pendientes, próximos pasos.
@@ -199,10 +199,10 @@ Para actualizar una traducción: editar los tres archivos `i18n/*.json`.
 
 | # | Hito | Estado |
 |---|------|--------|
-| 1 | Setup: Astro 5 + Tailwind v4 + GSAP + i18n + GitHub Actions | - |
-| 2 | Layout base + Navbar + selector de idioma + glassmorphism utilities | - |
-| 3 | Sección Hero (typewriter, social links, foto) | - |
-| 4 | Secciones About + Skills | - |
+| 1 | Setup: Astro 5 + Tailwind v4 + GSAP + i18n + GitHub Actions | ✅ |
+| 2 | Layout base + Navbar + selector de idioma + glassmorphism utilities | ✅ |
+| 3 | Sección Hero (typewriter, social links, foto) | ✅ |
+| 4 | Secciones About + Skills | **SIGUIENTE** |
 | 5 | Secciones Experience + Education (timelines) | - |
 | 6 | Sección Projects (cards con glass effect) | - |
 | 7 | Animaciones GSAP ScrollTrigger en todas las secciones | - |

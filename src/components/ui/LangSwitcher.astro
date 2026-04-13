@@ -1,0 +1,15 @@
+---
+const { currentLang } = Astro.props;
+const langs = ['es', 'en', 'ca'];
+---
+<div class="flex items-center gap-1">
+  {langs.map((lang) => (
+    <a
+      href={`/${lang}/`}
+      class={`lang-btn ${currentLang === lang ? 'lang-btn-active' : ''}`}
+      aria-current={currentLang === lang ? 'true' : undefined}
+    >
+      {lang.toUpperCase()}
+    </a>
+  ))}
+</div>

@@ -10,13 +10,15 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Eudald Bosch",
-    "roles": ["Web Developer", "Front-End Engineer", "Astro Specialist"],
+    "roles": ["Full-Stack Web Developer", "Front-End Engineer", "React & Astro Specialist"],
     "cta": "View projects",
-    "available": "Available for projects"
+    "available": "Available for new opportunities"
   },
   "about": {
     "title": "About me",
-    "bio": "Web developer passionate about crafting elegant and performant digital experiences."
+    "bio": "Full-stack web developer with 1 year of real enterprise experience. I took part in the complete migration of an HR desktop app to the web and built functional modules from scratch using React, TypeScript, Node.js and Laravel. Looking for a team to keep growing technically and contribute from day one.",
+    "location": "Barcelona, Spain",
+    "email": "eudald08210@gmail.com"
   },
   "skills": {
     "title": "Skills"
@@ -38,5 +40,9 @@
   },
   "footer": {
     "rights": "All rights reserved."
+  },
+  "social": {
+    "github": "https://github.com/Eudald2000",
+    "linkedin": "https://www.linkedin.com/in/eudald-bosch/"
   }
 }
