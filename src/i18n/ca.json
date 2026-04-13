@@ -10,13 +10,15 @@
   "hero": {
     "greeting": "Hola, soc",
     "name": "Eudald Bosch",
-    "roles": ["Desenvolupador Web", "Front-End Engineer", "Especialista en Astro"],
+    "roles": ["Desenvolupador Web Full-Stack", "Front-End Engineer", "Especialista en React & Astro"],
     "cta": "Veure projectes",
-    "available": "Disponible per a projectes"
+    "available": "Disponible per a noves oportunitats"
   },
   "about": {
     "title": "Sobre mi",
-    "bio": "Desenvolupador web apassionat per crear experiències digitals elegants i performants."
+    "bio": "Desenvolupador web full-stack amb 1 any d'experiència en entorn empresarial real. Vaig participar en la migració completa d'una aplicació de RRHH d'escriptori a web i vaig desenvolupar mòduls funcionals des de zero amb React, TypeScript, Node.js i Laravel. Busco un equip on seguir creixent tècnicament i aportar des del primer dia.",
+    "location": "Barcelona, Espanya",
+    "email": "eudald08210@gmail.com"
   },
   "skills": {
     "title": "Skills"
@@ -38,5 +40,9 @@
   },
   "footer": {
     "rights": "Tots els drets reservats."
+  },
+  "social": {
+    "github": "https://github.com/Eudald2000",
+    "linkedin": "https://www.linkedin.com/in/eudald-bosch/"
   }
 }

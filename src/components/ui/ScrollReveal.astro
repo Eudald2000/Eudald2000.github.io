@@ -1,0 +1,33 @@
+---
+const { animation = 'fadeIn', delay = 0 } = Astro.props;
+---
+<div data-reveal={animation} data-delay={String(delay)}>
+  <slot />
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const fromMap: Record<string, object> = {
+    fadeIn:    { opacity: 0, y: 20 },
+    slideLeft: { opacity: 0, x: -40 },
+    slideUp:   { opacity: 0, y: 40 },
+  };
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+      const anim  = el.dataset.reveal ?? 'fadeIn';
+      const delay = parseFloat(el.dataset.delay ?? '0');
+      gsap.from(el, {
+        ...(fromMap[anim] ?? fromMap.fadeIn),
+        duration: 0.6,
+        delay,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' },
+      });
+    });
+  });
+</script>

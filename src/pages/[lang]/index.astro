@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { LANGUAGES, t } from '@/i18n/utils.js';
+import HeroSection from '@/components/sections/HeroSection.astro';
+import { LANGUAGES } from '@/i18n/utils.js';
 
 export function getStaticPaths() {
   return LANGUAGES.map((lang) => ({ params: { lang } }));
@@ -8,11 +9,6 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 ---
-<BaseLayout lang={lang} title={`Eudald Bosch - Portfolio`}>
-  <main>
-    <h1 style="color: var(--accent); text-align: center; margin-top: 40vh;">
-      {t('hero.greeting', lang)} {t('hero.name', lang)}
-    </h1>
-    <p style="color: var(--text-muted); text-align: center;">Setup completo. Listo para construir.</p>
-  </main>
+<BaseLayout lang={lang} title="Eudald Bosch - Portfolio">
+  <HeroSection lang={lang} />
 </BaseLayout>

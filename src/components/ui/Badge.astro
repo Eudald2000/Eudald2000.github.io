@@ -1,0 +1,6 @@
+---
+const { label, variant = 'default' } = Astro.props;
+---
+<span class={variant === 'accent' ? 'badge-accent' : 'badge-default'}>
+  {label}
+</span>
