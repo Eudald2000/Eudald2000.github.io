@@ -1,6 +1,10 @@
 ---
 import '@/styles/global.css';
 import Navbar from '@/components/ui/Navbar.astro';
+import SmoothScroll from '@/components/ui/SmoothScroll.astro';
+import ScrollWaypoints from '@/components/ui/ScrollWaypoints.astro';
+import ScrollProgress from '@/components/ui/ScrollProgress.astro';
+import CustomCursor from '@/components/ui/CustomCursor.astro';
 import { t } from '@/i18n/utils.js';
 
 const {
@@ -25,8 +29,11 @@ const {
     <title>{title}</title>
   </head>
   <body class="antialiased">
+    <CustomCursor />
+    <ScrollProgress />
     <Navbar lang={lang} />
-    <main class="pt-16">
+    <ScrollWaypoints lang={lang} />
+    <main>
       <slot />
     </main>
     <footer class="border-t border-[var(--glass-border)] py-8 mt-24">
@@ -48,10 +55,6 @@ const {
         </div>
       </div>
     </footer>
-    <script>
-      import { gsap } from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      gsap.registerPlugin(ScrollTrigger);
-    </script>
+    <SmoothScroll />
   </body>
 </html>

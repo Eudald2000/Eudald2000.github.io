@@ -13,7 +13,7 @@ const navLinks = [
   { key: 'cv',         href: '#cv' },
 ];
 ---
-<header class="glass-nav fixed top-0 left-0 right-0 z-50">
+<header class="glass-nav sticky top-0 z-50 xl:static xl:z-auto">
   <nav class="container-section flex items-center justify-between h-16">
 
     <!-- Logo -->
@@ -75,4 +75,5 @@ const navLinks = [
       toggle?.setAttribute('aria-expanded', 'false');
     });
   });
+
 </script>

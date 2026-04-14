@@ -1,0 +1,86 @@
+---
+import { t } from '@/i18n/utils.js';
+import { skills } from '@/data/skills.js';
+import simpleIcons from '@iconify-json/simple-icons/icons.json';
+
+const { lang } = Astro.props;
+
+const localizedSkills = skills.map((group) => ({
+  category:
+    lang === 'en' ? group.categoryEn
+    : lang === 'ca' ? group.categoryCa
+    : group.category,
+  items: group.items,
+}));
+
+function iconBody(iconName) {
+  const key = iconName.replace('simple-icons:', '');
+  return simpleIcons.icons[key]?.body ?? null;
+}
+---
+
+<section id="skills" class="py-24 bg-[var(--bg-primary)]">
+  <div class="container-section">
+
+    <h2 class="skills-title text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-16 opacity-0">
+      <span class="text-[var(--accent)]">/</span> {t('skills.title', lang)}
+    </h2>
+
+    <div class="skills-grid flex flex-wrap justify-center gap-6">
+      {localizedSkills.map((group) => (
+        <div class="skill-card w-full sm:w-72 glass glass-hover p-6 flex flex-col gap-5 opacity-0">
+
+          <h3 class="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase">
+            {group.category}
+          </h3>
+
+          <div class="flex flex-wrap gap-2">
+            {group.items.map(({ name, icon }) => {
+              const body = iconBody(icon);
+              return (
+                <span class="badge-default inline-flex items-center gap-1.5">
+                  {body && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5 shrink-0 fill-current opacity-70"
+                      aria-hidden="true"
+                      set:html={body}
+                    />
+                  )}
+                  {name}
+                </span>
+              );
+            })}
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.skills-title',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#skills', start: 'top 80%' } }
+    );
+    gsap.fromTo('.skill-card',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1,
+        scrollTrigger: { trigger: '.skills-grid', start: 'top 80%' } }
+    );
+  });
+
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    gsap.set(['.skills-title', '.skill-card'], { opacity: 1 });
+  });
+</script>

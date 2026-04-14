@@ -1,0 +1,90 @@
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-trail-wrap" aria-hidden="true"></div>
+
+<style>
+  @media (pointer: fine) {
+    :global(*) { cursor: none !important; }
+
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      will-change: transform;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    :global(.cursor-trail-dot) {
+      position: fixed;
+      top: 0; left: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 99998;
+      will-change: transform;
+    }
+  }
+</style>
+
+<script>
+  if (!window.matchMedia('(pointer: fine)').matches) {
+    document.getElementById('cursor-dot')?.remove();
+    document.getElementById('cursor-trail-wrap')?.remove();
+  } else {
+    const dot  = document.getElementById('cursor-dot');
+    const wrap = document.getElementById('cursor-trail-wrap');
+
+    const TRAIL = 6;
+    const trail = Array.from({ length: TRAIL }, (_, i) => {
+      const el   = document.createElement('div');
+      el.className = 'cursor-trail-dot';
+      const size = (5 - i * 0.55).toFixed(1);
+      el.style.cssText = `width:${size}px;height:${size}px;opacity:${(0.45 - i * 0.06).toFixed(2)}`;
+      wrap.appendChild(el);
+      return { el, x: -200, y: -200 };
+    });
+
+    let mx = -200, my = -200;
+    let dx = -200, dy = -200;
+    let visible = false;
+
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!visible) {
+        visible = true;
+        dot.style.opacity = '1';
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      visible = false;
+      dot.style.opacity = '0';
+    });
+
+    function animate() {
+      // Dot principal — sigue rápido
+      dx += (mx - dx) * 0.85;
+      dy += (my - dy) * 0.85;
+      dot.style.transform = `translate(calc(${dx}px - 50%), calc(${dy}px - 50%))`;
+
+      // Estela — cada dot sigue al anterior (efecto cometa)
+      let px = dx, py = dy;
+      trail.forEach((t) => {
+        t.x += (px - t.x) * 0.35;
+        t.y += (py - t.y) * 0.35;
+        t.el.style.transform = `translate(calc(${t.x}px - 50%), calc(${t.y}px - 50%))`;
+        px = t.x;
+        py = t.y;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+</script>
