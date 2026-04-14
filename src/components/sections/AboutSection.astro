@@ -1,0 +1,87 @@
+---
+import { t } from '@/i18n/utils.js';
+
+const { lang } = Astro.props;
+---
+
+<section id="about" class="py-24 bg-[var(--bg-secondary)]">
+  <div class="container-section">
+
+    <h2 class="about-title text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-16 opacity-0">
+      <span class="text-[var(--accent)]">/</span> {t('about.title', lang)}
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+
+      <!-- Foto -->
+      <div class="about-photo opacity-0 shrink-0">
+        <div class="relative w-44 h-44 md:w-52 md:h-52">
+          <div class="absolute inset-0 rounded-full border border-[var(--accent)] opacity-20"></div>
+          <div class="absolute inset-2 rounded-full border border-[var(--accent)] opacity-10"></div>
+          <div class="absolute inset-4 rounded-full glass flex items-center justify-center overflow-hidden">
+            <svg class="w-16 h-16 text-[var(--text-muted)] opacity-40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="about-bio glass glass-hover p-8 flex flex-col gap-6 opacity-0 flex-1">
+        <p class="text-[var(--text-muted)] leading-relaxed text-base md:text-lg">
+          {t('about.bio', lang)}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-2 border-t border-[var(--glass-border)]">
+          <span class="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            {t('about.location', lang)}
+          </span>
+          <a
+            href={`mailto:${t('about.email', lang)}`}
+            class="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-200"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            {t('about.email', lang)}
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.about-title',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#about', start: 'top 80%' } }
+    );
+    gsap.fromTo('.about-photo',
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#about', start: 'top 70%' } }
+    );
+    gsap.fromTo('.about-bio',
+      { opacity: 0, x: 40 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#about', start: 'top 70%' } }
+    );
+  });
+
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    gsap.set(['.about-title', '.about-photo', '.about-bio'], { opacity: 1 });
+  });
+</script>

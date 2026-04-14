@@ -1,0 +1,247 @@
+---
+import { t } from '@/i18n/utils.js';
+
+const { lang } = Astro.props;
+
+const heroLabel = lang === 'en' ? 'Home' : lang === 'ca' ? 'Inici' : 'Inicio';
+
+const waypoints = [
+  { id: 'hero',       label: heroLabel                   },
+  { id: 'about',      label: t('nav.about', lang)        },
+  { id: 'skills',     label: t('nav.skills', lang)       },
+  { id: 'experience', label: t('nav.experience', lang)   },
+  { id: 'education',  label: t('nav.education', lang)    },
+  { id: 'projects',   label: t('nav.projects', lang)     },
+];
+
+const TOTAL = 6;
+const SVG_H = 380;
+const PAD   = 28;
+const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);
+const yPos  = waypoints.map((_, i) => Math.round(PAD + i * STEP));
+---
+
+<div id="scroll-waypoints" class="hidden xl:block fixed right-6 z-40 top-1/2 -translate-y-1/2">
+  <div class="relative" style={`height: ${SVG_H}px;`}>
+
+    <!-- Labels (a la izquierda del SVG) -->
+    {waypoints.map(({ id, label }, i) => (
+      <button
+        class="wp-btn absolute right-8 flex items-center justify-end cursor-pointer bg-transparent border-0 p-0 group"
+        style={`top: ${yPos[i]}px; transform: translateY(-50%);`}
+        data-section={id}
+        data-index={String(i)}
+        aria-label={label}
+      >
+        <span class="wp-label text-[9px] tracking-[0.15em] uppercase text-[#94a3b8] opacity-0 transition-all duration-300 whitespace-nowrap pr-1.5 group-hover:opacity-60">
+          {label}
+        </span>
+      </button>
+    ))}
+
+    <!-- SVG: línea + dots + viajero -->
+    <svg
+      class="absolute right-0 top-0"
+      width="24"
+      height={SVG_H}
+      viewBox={`0 0 24 ${SVG_H}`}
+      overflow="visible"
+    >
+      <defs>
+        <filter id="wp-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Línea base -->
+      <line
+        x1="12" y1={PAD}
+        x2="12" y2={SVG_H - PAD}
+        stroke="rgba(255,255,255,0.07)"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+
+      <!-- Línea de progreso (animada) -->
+      <line
+        id="wp-progress"
+        x1="12" y1={PAD}
+        x2="12" y2={PAD}
+        stroke="#06b6d4"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        opacity="0.45"
+      />
+
+      <!-- Dots de waypoints -->
+      {yPos.map((y, i) => (
+        <circle
+          id={`wp-c-${i}`}
+          cx="12"
+          cy={y}
+          r="2.5"
+          fill="rgba(148,163,184,0.2)"
+        />
+      ))}
+
+      <!-- Anillo de pulso (glow exterior) -->
+      <circle
+        id="wp-pulse"
+        cx="12"
+        cy={PAD}
+        r="7"
+        fill="none"
+        stroke="#06b6d4"
+        stroke-width="1"
+        opacity="0"
+      />
+
+      <!-- Viajero -->
+      <circle
+        id="wp-traveler"
+        cx="12"
+        cy={PAD}
+        r="4"
+        fill="#06b6d4"
+        filter="url(#wp-glow)"
+      />
+    </svg>
+  </div>
+</div>
+
+<style>
+  .wp-btn.is-active .wp-label {
+    opacity: 1 !important;
+    color: #06b6d4;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const TOTAL = 6;
+  const SVG_H = 380;
+  const PAD   = 28;
+  const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);
+  const allY  = Array.from({ length: TOTAL }, (_, i) => Math.round(PAD + i * STEP));
+
+  const buttons  = Array.from(document.querySelectorAll('.wp-btn'));
+  const traveler = document.getElementById('wp-traveler');
+  const pulse    = document.getElementById('wp-pulse');
+  const progress = document.getElementById('wp-progress');
+
+  // Ocultar waypoints de secciones que aún no existen
+  buttons.forEach((btn) => {
+    if (!document.getElementById(btn.dataset.section)) {
+      btn.style.display = 'none';
+    }
+  });
+
+  // Botones existentes en orden
+  const existingButtons = buttons.filter((btn) =>
+    document.getElementById(btn.dataset.section)
+  );
+
+  // Pulso continuo
+  gsap.to(pulse, {
+    attr:     { r: 11 },
+    opacity:  0,
+    duration: 1.4,
+    repeat:   -1,
+    ease:     'power1.out',
+  });
+
+  // Anchors: scrollProgress → cy exacto del dot
+  function buildAnchors() {
+    const totalH = document.body.scrollHeight - window.innerHeight;
+    return existingButtons.map((btn) => {
+      const section = document.getElementById(btn.dataset.section);
+      const progress = totalH > 0
+        ? Math.max(0, Math.min(1, section.offsetTop / totalH))
+        : 0;
+      return { progress, cy: allY[parseInt(btn.dataset.index)] };
+    });
+  }
+
+  function interpolateY(progress, anchors) {
+    if (anchors.length === 0) return allY[0];
+    if (progress <= anchors[0].progress) return anchors[0].cy;
+    for (let i = 0; i < anchors.length - 1; i++) {
+      const a = anchors[i], b = anchors[i + 1];
+      if (progress <= b.progress) {
+        const t = (progress - a.progress) / (b.progress - a.progress);
+        return a.cy + (b.cy - a.cy) * t;
+      }
+    }
+    return anchors[anchors.length - 1].cy;
+  }
+
+  let anchors = buildAnchors();
+  window.addEventListener('resize', () => { anchors = buildAnchors(); });
+
+  // Viajero ligado al scroll con interpolación por sección
+  ScrollTrigger.create({
+    start:    'top top',
+    end:      'bottom bottom',
+    onUpdate: (self) => {
+      const cy = interpolateY(self.progress, anchors);
+      gsap.to([traveler, pulse], {
+        attr:      { cy },
+        duration:  0.35,
+        ease:      'power1.out',
+        overwrite: true,
+      });
+      gsap.to(progress, {
+        attr:      { y2: cy },
+        duration:  0.35,
+        ease:      'power1.out',
+        overwrite: true,
+      });
+    },
+  });
+
+  // IntersectionObserver — solo para dots y labels activos
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const idx = buttons.findIndex((b) => b.dataset.section === entry.target.id);
+        if (idx === -1) return;
+
+        buttons.forEach((btn, i) => {
+          const circle = document.getElementById(`wp-c-${i}`);
+          if (circle) {
+            gsap.to(circle, {
+              attr:     { fill: i <= idx ? 'rgba(6,182,212,0.55)' : 'rgba(148,163,184,0.2)' },
+              duration: 0.3,
+            });
+          }
+          btn.classList.toggle('is-active', i === idx);
+        });
+      });
+    },
+    { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+  );
+
+  document.querySelectorAll('section[id]').forEach((s) => observer.observe(s));
+
+  // Click para navegar
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lenis = window['__lenis'];
+      if (lenis) {
+        lenis.scrollTo(`#${btn.dataset.section}`, {
+          duration: 1.4,
+          easing: (t) => 1 - Math.pow(1 - t, 3),
+        });
+      }
+    });
+  });
+</script>
