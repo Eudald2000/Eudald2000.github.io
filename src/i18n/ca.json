@@ -2,8 +2,7 @@
   "nav": {
     "about": "Sobre mi",
     "skills": "Skills",
-    "experience": "Experiència",
-    "education": "Educació",
+    "trayectoria": "Trajectòria",
     "projects": "Projectes",
     "cv": "CV"
   },
@@ -23,11 +22,10 @@
   "skills": {
     "title": "Skills"
   },
-  "experience": {
-    "title": "Experiència"
-  },
-  "education": {
-    "title": "Educació"
+  "trayectoria": {
+    "title": "Trajectòria",
+    "experience": "Experiència",
+    "education": "Formació"
   },
   "projects": {
     "title": "Projectes",

@@ -6,16 +6,15 @@ const { lang } = Astro.props;
 const heroLabel = lang === 'en' ? 'Home' : lang === 'ca' ? 'Inici' : 'Inicio';
 
 const waypoints = [
-  { id: 'hero',       label: heroLabel                   },
-  { id: 'about',      label: t('nav.about', lang)        },
-  { id: 'skills',     label: t('nav.skills', lang)       },
-  { id: 'experience', label: t('nav.experience', lang)   },
-  { id: 'education',  label: t('nav.education', lang)    },
-  { id: 'projects',   label: t('nav.projects', lang)     },
+  { id: 'hero',         label: heroLabel                       },
+  { id: 'about',        label: t('nav.about', lang)            },
+  { id: 'skills',       label: t('nav.skills', lang)           },
+  { id: 'trayectoria',  label: t('nav.trayectoria', lang)      },
+  { id: 'projects',     label: t('nav.projects', lang)         },
 ];
 
-const TOTAL = 6;
-const SVG_H = 380;
+const TOTAL = 5;
+const SVG_H = 320;
 const PAD   = 28;
 const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);
 const yPos  = waypoints.map((_, i) => Math.round(PAD + i * STEP));
@@ -126,8 +125,8 @@ const yPos  = waypoints.map((_, i) => Math.round(PAD + i * STEP));
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const TOTAL = 6;
-  const SVG_H = 380;
+  const TOTAL = 5;
+  const SVG_H = 320;
   const PAD   = 28;
   const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);
   const allY  = Array.from({ length: TOTAL }, (_, i) => Math.round(PAD + i * STEP));

@@ -2,8 +2,7 @@
   "nav": {
     "about": "About",
     "skills": "Skills",
-    "experience": "Experience",
-    "education": "Education",
+    "trayectoria": "Journey",
     "projects": "Projects",
     "cv": "CV"
   },
@@ -23,11 +22,10 @@
   "skills": {
     "title": "Skills"
   },
-  "experience": {
-    "title": "Experience"
-  },
-  "education": {
-    "title": "Education"
+  "trayectoria": {
+    "title": "Journey",
+    "experience": "Experience",
+    "education": "Education"
   },
   "projects": {
     "title": "Projects",

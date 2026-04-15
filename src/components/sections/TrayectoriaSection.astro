@@ -1,0 +1,144 @@
+---
+import { t } from '@/i18n/utils.js';
+import { experiences } from '@/data/experiences.js';
+import { education } from '@/data/education.js';
+
+const { lang } = Astro.props;
+
+const mainEdu = education[0];
+const secondaryEdu = education.slice(1);
+---
+
+<section id="trayectoria" class="py-24 bg-[var(--bg-secondary)]">
+  <div class="container-section">
+
+    <h2 class="tray-title text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-16 opacity-0">
+      <span class="text-[var(--accent)]">/</span> {t('trayectoria.title', lang)}
+    </h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+      <!-- Columna izquierda: Experiencia -->
+      <div class="tray-col opacity-0">
+        <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-5 font-medium">
+          {t('trayectoria.experience', lang)}
+        </p>
+
+        {experiences.map((exp) => (
+          <div class="glass glass-hover p-6 md:p-8 flex flex-col gap-5">
+
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div>
+                <h3 class="text-lg md:text-xl font-semibold text-[var(--text-primary)]">
+                  {exp.role[lang]}
+                </h3>
+                <p class="text-[var(--accent)] text-sm font-medium mt-0.5">{exp.company}</p>
+                <p class="text-[var(--text-muted)] text-xs mt-0.5">{exp.location}</p>
+              </div>
+              <span class="text-xs text-[var(--text-muted)] whitespace-nowrap border border-[var(--glass-border)] rounded-full px-3 py-1 self-start">
+                {exp.period}
+              </span>
+            </div>
+
+            <ul class="flex flex-col gap-2">
+              {exp.items[lang].map((item) => (
+                <li class="flex gap-3 text-sm text-[var(--text-muted)] leading-relaxed">
+                  <span class="text-[var(--accent)] mt-1 shrink-0">›</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--glass-border)]">
+              {exp.technologies.map((tech) => (
+                <span class="badge-default">{tech}</span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Columna derecha: Formación -->
+      <div class="tray-col opacity-0 flex flex-col gap-5">
+        <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-0 font-medium">
+          {t('trayectoria.education', lang)}
+        </p>
+
+        <!-- Entrada principal -->
+        <div class="glass glass-hover p-6 md:p-8 flex flex-col gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <div>
+              <h3 class="text-lg md:text-xl font-semibold text-[var(--text-primary)]">
+                {mainEdu.degree[lang]}
+              </h3>
+              <p class="text-[var(--accent)] text-sm font-medium mt-0.5">{mainEdu.institution}</p>
+              <p class="text-[var(--text-muted)] text-xs mt-0.5">{mainEdu.location}</p>
+            </div>
+            {mainEdu.period && (
+              <span class="text-xs text-[var(--text-muted)] whitespace-nowrap border border-[var(--glass-border)] rounded-full px-3 py-1 self-start">
+                {mainEdu.period}
+              </span>
+            )}
+          </div>
+          <ul class="flex flex-col gap-2">
+            {mainEdu.items[lang].map((item) => (
+              <li class="flex gap-3 text-sm text-[var(--text-muted)] leading-relaxed">
+                <span class="text-[var(--accent)] mt-1 shrink-0">›</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Entradas secundarias -->
+        {secondaryEdu.map((edu) => (
+          <div class="glass p-5 flex flex-col gap-3 border-l-2 border-[var(--accent)] border-opacity-40">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h4 class="text-sm font-semibold text-[var(--text-primary)]">{edu.degree[lang]}</h4>
+                <p class="text-[var(--accent)] text-xs mt-0.5 opacity-80">{edu.institution}</p>
+              </div>
+            </div>
+            <ul class="flex flex-col gap-1">
+              {edu.items[lang].map((item) => (
+                <li class="text-xs text-[var(--text-muted)] leading-relaxed">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.tray-title',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#trayectoria', start: 'top 80%' } }
+    );
+
+    document.querySelectorAll('.tray-col').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+          scrollTrigger: { trigger: '#trayectoria', start: 'top 70%' },
+          delay: i * 0.15 }
+      );
+    });
+  });
+
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    gsap.set(['.tray-title', '.tray-col'], { opacity: 1 });
+  });
+</script>
