@@ -204,7 +204,7 @@ Para actualizar una traducción: editar los tres archivos `i18n/*.json`.
 | 3 | Sección Hero (typewriter, social links, foto) | ✅ |
 | 4 | Secciones About + Skills | ✅ |
 | 5 | Sección Trayectoria (Experience + Education fusionados, two-column) | ✅ |
-| 6 | Sección Projects (cards con glass effect) | **SIGUIENTE** |
+| 6 | Sección Projects (cards con glass effect) | ✅ |
 | 7 | Animaciones GSAP ScrollTrigger en todas las secciones | - |
 | 8 | i18n completo: ES + EN + CA | - |
 | 9 | Pulido final: responsive, accesibilidad, performance | - |

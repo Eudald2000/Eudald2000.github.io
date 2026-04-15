@@ -1,0 +1,120 @@
+---
+import { t } from '@/i18n/utils.js';
+import { projects } from '@/data/projects.js';
+
+const { lang } = Astro.props;
+---
+
+<section id="projects" class="py-24 bg-[var(--bg-primary)]">
+  <div class="container-section">
+
+    <h2 class="proj-title text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-16 opacity-0">
+      <span class="text-[var(--accent)]">/</span> {t('projects.title', lang)}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project, i) => (
+        <article class={`proj-card opacity-0 glass glass-hover flex flex-col overflow-hidden group`} data-index={i}>
+
+          <!-- Imagen -->
+          <div class="relative w-full h-48 overflow-hidden bg-[rgba(255,255,255,0.03)] border-b border-[var(--glass-border)]">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center">
+                <span class="text-4xl font-bold text-[var(--accent)] opacity-20 select-none tracking-tight">
+                  {project.title.split(' ').map(w => w[0]).join('')}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <!-- Contenido -->
+          <div class="flex flex-col gap-4 p-6 flex-1">
+
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors duration-200">
+              {project.title}
+            </h3>
+
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed flex-1">
+              {project.description[lang]}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span class="badge-default">{tag}</span>
+              ))}
+            </div>
+
+            <!-- Links -->
+            <div class="flex gap-3 pt-2 border-t border-[var(--glass-border)]">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-1.5 text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+                {t('projects.view_code', lang)}
+              </a>
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:text-[var(--text-primary)] transition-colors duration-200"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  {t('projects.view_demo', lang)}
+                </a>
+              )}
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.proj-title',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '#projects', start: 'top 80%' } }
+    );
+
+    document.querySelectorAll('.proj-card').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+          delay: (i % 2) * 0.12 }
+      );
+    });
+  });
+
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    gsap.set(['.proj-title', '.proj-card'], { opacity: 1 });
+  });
+</script>
