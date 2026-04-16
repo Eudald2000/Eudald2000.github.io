@@ -4,6 +4,7 @@ import HeroSection from '@/components/sections/HeroSection.astro';
 import AboutSection from '@/components/sections/AboutSection.astro';
 import SkillsSection from '@/components/sections/SkillsSection.astro';
 import TrayectoriaSection from '@/components/sections/TrayectoriaSection.astro';
+import ProjectsSection from '@/components/sections/ProjectsSection.astro';
 import { LANGUAGES } from '@/i18n/utils.js';
 
 export function getStaticPaths() {
@@ -17,4 +18,5 @@ const { lang } = Astro.params;
   <AboutSection lang={lang} />
   <SkillsSection lang={lang} />
   <TrayectoriaSection lang={lang} />
+  <ProjectsSection lang={lang} />
 </BaseLayout>
