@@ -19,13 +19,13 @@ const secondaryEdu = education.slice(1);
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
       <!-- Columna izquierda: Experiencia -->
-      <div class="tray-col opacity-0">
+      <div class="tray-col">
         <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-5 font-medium">
           {t('trayectoria.experience', lang)}
         </p>
 
         {experiences.map((exp) => (
-          <div class="glass glass-hover p-6 md:p-8 flex flex-col gap-5">
+          <div class="tray-item opacity-0 glass glass-hover p-6 md:p-8 flex flex-col gap-5">
 
             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
               <div>
@@ -60,13 +60,13 @@ const secondaryEdu = education.slice(1);
       </div>
 
       <!-- Columna derecha: Formación -->
-      <div class="tray-col opacity-0 flex flex-col gap-5">
+      <div class="tray-col flex flex-col gap-5">
         <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-0 font-medium">
           {t('trayectoria.education', lang)}
         </p>
 
         <!-- Entrada principal -->
-        <div class="glass glass-hover p-6 md:p-8 flex flex-col gap-4">
+        <div class="tray-item opacity-0 glass glass-hover p-6 md:p-8 flex flex-col gap-4">
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
             <div>
               <h3 class="text-lg md:text-xl font-semibold text-[var(--text-primary)]">
@@ -93,7 +93,7 @@ const secondaryEdu = education.slice(1);
 
         <!-- Entradas secundarias -->
         {secondaryEdu.map((edu) => (
-          <div class="glass p-5 flex flex-col gap-3 border-l-2 border-[var(--accent)] border-opacity-40">
+          <div class="tray-item opacity-0 glass glass-hover p-5 flex flex-col gap-3">
             <div class="flex items-start justify-between gap-2">
               <div>
                 <h4 class="text-sm font-semibold text-[var(--text-primary)]">{edu.degree[lang]}</h4>
@@ -128,17 +128,16 @@ const secondaryEdu = education.slice(1);
         scrollTrigger: { trigger: '#trayectoria', start: 'top 80%' } }
     );
 
-    document.querySelectorAll('.tray-col').forEach((el, i) => {
+    document.querySelectorAll('.tray-item').forEach((el) => {
       gsap.fromTo(el,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
-          scrollTrigger: { trigger: '#trayectoria', start: 'top 70%' },
-          delay: i * 0.15 }
+          scrollTrigger: { trigger: el, start: 'top 88%' } }
       );
     });
   });
 
   mm.add('(prefers-reduced-motion: reduce)', () => {
-    gsap.set(['.tray-title', '.tray-col'], { opacity: 1 });
+    gsap.set(['.tray-title', '.tray-item'], { opacity: 1 });
   });
 </script>

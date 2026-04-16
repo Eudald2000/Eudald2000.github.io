@@ -11,9 +11,10 @@ const waypoints = [
   { id: 'skills',       label: t('nav.skills', lang)           },
   { id: 'trayectoria',  label: t('nav.trayectoria', lang)      },
   { id: 'projects',     label: t('nav.projects', lang)         },
+  { id: 'cv',           label: t('nav.cv', lang)               },
 ];
 
-const TOTAL = 5;
+const TOTAL = 6;
 const SVG_H = 320;
 const PAD   = 28;
 const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);
@@ -32,7 +33,7 @@ const yPos  = waypoints.map((_, i) => Math.round(PAD + i * STEP));
         data-index={String(i)}
         aria-label={label}
       >
-        <span class="wp-label text-[9px] tracking-[0.15em] uppercase text-[#94a3b8] opacity-0 transition-all duration-300 whitespace-nowrap pr-1.5 group-hover:opacity-60">
+        <span class="wp-label text-[9px] tracking-[0.15em] uppercase text-[#94a3b8] opacity-20 transition-all duration-300 whitespace-nowrap pr-1.5 group-hover:opacity-60">
           {label}
         </span>
       </button>
@@ -125,7 +126,7 @@ const yPos  = waypoints.map((_, i) => Math.round(PAD + i * STEP));
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const TOTAL = 5;
+  const TOTAL = 6;
   const SVG_H = 320;
   const PAD   = 28;
   const STEP  = (SVG_H - PAD * 2) / (TOTAL - 1);

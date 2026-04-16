@@ -34,7 +34,11 @@
   },
   "cv": {
     "title": "Resume",
-    "download": "Download CV"
+    "description": "Available in two versions depending on the context.",
+    "label_visual": "Visual CV",
+    "label_ats": "ATS CV",
+    "url_visual": "https://docs.google.com/document/d/1pYih3TUCy7H4dI3JIfR-5yRsAcw4WB9x/edit?usp=sharing",
+    "url_ats": "https://drive.google.com/file/d/1XwE90WiEIeEAuRdmkmOThZpIKa8BGGyf/view?usp=sharing"
   },
   "footer": {
     "rights": "All rights reserved."

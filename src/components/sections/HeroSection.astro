@@ -65,17 +65,16 @@ const roles = t('hero.roles', lang) as string[];
 
       </div>
 
-      <!-- Foto placeholder -->
+      <!-- Foto -->
       <div class="hero-photo opacity-0 shrink-0">
         <div class="relative w-56 h-56 md:w-64 md:h-64">
-          <!-- Anillo decorativo exterior -->
-          <div class="absolute inset-0 rounded-full border border-[var(--accent)] opacity-20 animate-spin-slow"></div>
-          <div class="absolute inset-2 rounded-full border border-[var(--accent)] opacity-10"></div>
-          <!-- Avatar placeholder -->
-          <div class="absolute inset-4 rounded-full glass flex items-center justify-center overflow-hidden">
-            <svg class="w-24 h-24 text-[var(--text-muted)] opacity-40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-            </svg>
+          <!-- Anillo exterior giratorio -->
+          <div class="absolute inset-0 rounded-full border border-white opacity-10 animate-spin-slow"></div>
+          <!-- Anillo interior estático con glow blanco -->
+          <div class="absolute inset-2 rounded-full border border-white opacity-20 avatar-ring"></div>
+          <!-- Avatar con fondo glass -->
+          <div class="absolute inset-4 rounded-full overflow-hidden glass">
+            <img src="/images/avatar.png" alt="Eudald Bosch" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -161,5 +160,8 @@ const roles = t('hero.roles', lang) as string[];
   }
   .animate-spin-slow {
     animation: spin-slow 12s linear infinite;
+  }
+  .avatar-ring {
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), inset 0 0 18px rgba(255, 255, 255, 0.04);
   }
 </style>

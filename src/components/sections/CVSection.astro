@@ -1,0 +1,55 @@
+---
+import { t } from '@/i18n/utils.js';
+
+const { lang } = Astro.props;
+---
+
+<section id="cv" class="py-24 bg-[var(--bg-secondary)]">
+  <div class="container-section">
+
+    <div class="cv-content flex flex-col gap-8">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+        <span class="text-[var(--accent)]">/</span> {t('cv.title', lang)}
+      </h2>
+
+      <p class="text-[var(--text-muted)] text-sm leading-relaxed text-center max-w-md self-center">
+        {t('cv.description', lang)}
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+
+        <a
+          href={t('cv.url_visual', lang) as string}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass glass-hover inline-flex items-center gap-3 px-8 py-4 text-[var(--accent)] font-medium"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          {t('cv.label_visual', lang)}
+        </a>
+
+        <a
+          href={t('cv.url_ats', lang) as string}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass glass-hover inline-flex items-center gap-3 px-8 py-4 text-[var(--text-muted)] font-medium"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          {t('cv.label_ats', lang)}
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
