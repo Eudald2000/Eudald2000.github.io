@@ -208,4 +208,4 @@ Para actualizar una traducción: editar los tres archivos `i18n/*.json`.
 | 7 | Animaciones GSAP ScrollTrigger en todas las secciones | ✅ |
 | 8 | i18n completo: ES + EN + CA | ✅ |
 | 9 | Pulido final: responsive, accesibilidad, performance | ✅ |
-| 10 | Migración a `eudald2000.github.io` + eliminar repo temporal | - |
+| 10 | Migración a `eudald2000.github.io` + eliminar repo temporal | ✅ |
