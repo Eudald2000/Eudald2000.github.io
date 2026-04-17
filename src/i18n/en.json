@@ -1,10 +1,15 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "skills": "Skills",
     "trayectoria": "Journey",
     "projects": "Projects",
-    "cv": "CV"
+    "cv": "CV",
+    "menu_toggle": "Open menu"
+  },
+  "meta": {
+    "description": "Personal portfolio of Eudald Bosch, Front-End Engineer specialized in React, Astro and TypeScript."
   },
   "hero": {
     "greeting": "Hi, I'm",

@@ -8,10 +8,10 @@ import CustomCursor from '@/components/ui/CustomCursor.astro';
 import { t } from '@/i18n/utils.js';
 
 const {
-  title       = 'Eudald Bosch - Portfolio',
-  lang        = 'es',
-  description = 'Portfolio personal de Eudald Bosch, Front-End Engineer especializado en React, Astro y TypeScript.',
+  title = 'Eudald Bosch - Portfolio',
+  lang  = 'es',
 } = Astro.props;
+const description = (Astro.props.description as string) ?? (t('meta.description', lang) as string);
 ---
 <!DOCTYPE html>
 <html lang={lang}>

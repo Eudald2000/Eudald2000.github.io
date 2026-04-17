@@ -3,7 +3,7 @@ import { t } from '@/i18n/utils.js';
 
 const { lang } = Astro.props;
 
-const heroLabel = lang === 'en' ? 'Home' : lang === 'ca' ? 'Inici' : 'Inicio';
+const heroLabel = t('nav.home', lang) as string;
 
 const waypoints = [
   { id: 'hero',         label: heroLabel                       },

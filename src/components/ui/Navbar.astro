@@ -35,7 +35,7 @@ const navLinks = [
       <button
         id="menu-toggle"
         class="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
-        aria-label="Toggle menu"
+        aria-label={t('nav.menu_toggle', lang) as string}
         aria-expanded="false"
       >
         <span class="block w-5 h-0.5 bg-[var(--text-primary)] transition-all duration-200"></span>
