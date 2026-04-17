@@ -207,5 +207,5 @@ Para actualizar una traducción: editar los tres archivos `i18n/*.json`.
 | 6 | Sección Projects (cards con glass effect) | ✅ |
 | 7 | Animaciones GSAP ScrollTrigger en todas las secciones | ✅ |
 | 8 | i18n completo: ES + EN + CA | ✅ |
-| 9 | Pulido final: responsive, accesibilidad, performance | - |
+| 9 | Pulido final: responsive, accesibilidad, performance | ✅ |
 | 10 | Migración a `eudald2000.github.io` + eliminar repo temporal | - |

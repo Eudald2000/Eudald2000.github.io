@@ -1,8 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import { t } from '@/i18n/utils.js';
 import { projects } from '@/data/projects.js';
+import imgBibliotecaAi  from '@/assets/images/projects/biblioteca-ai.png';
+import imgPokedex       from '@/assets/images/projects/pokedex.png';
+import imgBiblioteca    from '@/assets/images/projects/biblioteca.png';
+import imgAmazonas      from '@/assets/images/projects/amazonas.png';
 
 const { lang } = Astro.props;
+
+const projectImages = {
+  'biblioteca-ai':      imgBibliotecaAi,
+  'buscador-pokemon':   imgPokedex,
+  'biblioteca-laravel': imgBiblioteca,
+  'amazonas':           imgAmazonas,
+};
 ---
 
 <section id="projects" class="py-24 bg-[var(--bg-primary)]">
@@ -18,11 +30,13 @@ const { lang } = Astro.props;
 
           <!-- Imagen -->
           <div class="relative w-full h-48 overflow-hidden bg-[rgba(255,255,255,0.03)] border-b border-[var(--glass-border)]">
-            {project.image ? (
-              <img
-                src={project.image}
+            {projectImages[project.id] ? (
+              <Image
+                src={projectImages[project.id]}
                 alt={project.title}
                 class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                width={600}
+                height={192}
                 loading="lazy"
               />
             ) : (

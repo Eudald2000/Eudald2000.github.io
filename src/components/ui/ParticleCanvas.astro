@@ -13,6 +13,10 @@
   const MAX_DIST     = 145;
   const MOUSE_RADIUS = 140;
 
+  const isTouch = window.matchMedia('(hover: none)').matches;
+  const BASE_OPACITY   = isTouch ? 0.45 : 0.18;
+  const BASE_LINE      = isTouch ? 0.28 : 0.12;
+
   let W = 0, H = 0;
   const mouse = { x: -9999, y: -9999 };
 
@@ -60,7 +64,7 @@
       const t  = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / MOUSE_RADIUS);
 
       const radius  = this.baseR + t * 3;
-      const opacity = 0.18 + t * 0.82;
+      const opacity = BASE_OPACITY + t * (1 - BASE_OPACITY);
 
       ctx.beginPath();
       ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
@@ -86,7 +90,7 @@
         const d  = Math.sqrt(dx * dx + dy * dy);
         if (d > MAX_DIST) continue;
 
-        const baseAlpha = (1 - d / MAX_DIST) * 0.12;
+        const baseAlpha = (1 - d / MAX_DIST) * BASE_LINE;
         const dma    = Math.sqrt((a.x - mouse.x) ** 2 + (a.y - mouse.y) ** 2);
         const dmb    = Math.sqrt((b.x - mouse.x) ** 2 + (b.y - mouse.y) ** 2);
         const mouseT = Math.max(

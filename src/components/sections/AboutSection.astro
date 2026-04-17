@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { t } from '@/i18n/utils.js';
+import avatarImg from '@/assets/images/avatar.png';
 
 const { lang } = Astro.props;
 ---
@@ -19,7 +21,7 @@ const { lang } = Astro.props;
           <div class="absolute inset-0 rounded-full border border-white opacity-10"></div>
           <div class="absolute inset-2 rounded-full border border-white opacity-20" style="box-shadow: 0 0 18px rgba(255,255,255,0.12), inset 0 0 18px rgba(255,255,255,0.04);"></div>
           <div class="absolute inset-4 rounded-full glass overflow-hidden">
-            <img src="/images/avatar.png" alt="Eudald Bosch" class="w-full h-full object-cover" />
+            <Image src={avatarImg} alt="Eudald Bosch" class="w-full h-full object-cover" width={208} height={208} />
           </div>
         </div>
       </div>

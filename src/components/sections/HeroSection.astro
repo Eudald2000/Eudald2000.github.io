@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { t } from '@/i18n/utils.js';
 import ParticleCanvas from '@/components/ui/ParticleCanvas.astro';
+import avatarImg from '@/assets/images/avatar.png';
 
 const { lang } = Astro.props;
 const roles = t('hero.roles', lang) as string[];
@@ -19,7 +21,7 @@ const roles = t('hero.roles', lang) as string[];
           {t('hero.greeting', lang)}
         </p>
 
-        <h1 class="hero-name text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] leading-tight opacity-0">
+        <h1 class="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] leading-tight opacity-0">
           Eudald <span class="text-[var(--accent)]">Bosch</span>
         </h1>
 
@@ -74,7 +76,7 @@ const roles = t('hero.roles', lang) as string[];
           <div class="absolute inset-2 rounded-full border border-white opacity-20 avatar-ring"></div>
           <!-- Avatar con fondo glass -->
           <div class="absolute inset-4 rounded-full overflow-hidden glass">
-            <img src="/images/avatar.png" alt="Eudald Bosch" class="w-full h-full object-cover" />
+            <Image src={avatarImg} alt="Eudald Bosch" class="w-full h-full object-cover" width={256} height={256} fetchpriority="high" />
           </div>
         </div>
       </div>
