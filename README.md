@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Portfolio - Eudald Bosch
 
-```sh
-npm create astro@latest -- --template minimal
+Portfolio personal desplegado en [eudald2000.github.io](https://eudald2000.github.io).
+
+## Stack
+
+- **Framework:** Astro 5 (SSG)
+- **Estilos:** Tailwind CSS v4, glassmorphism dark
+- **Animaciones:** GSAP + ScrollTrigger
+- **i18n:** ES / EN / CA
+- **Deploy:** GitHub Pages via GitHub Actions
+
+## Estructura
+
+```
+src/
+├── i18n/           # Traducciones (es.json, en.json, ca.json)
+├── layouts/        # BaseLayout.astro
+├── components/
+│   ├── ui/         # GlassCard, Badge, AnimatedText, etc.
+│   └── sections/   # Hero, About, Skills, Experience, Projects, CV
+├── data/           # projects.js, skills.js, experiences.js, education.js
+├── pages/
+│   ├── index.astro         # Redirect a /es
+│   └── [lang]/index.astro  # Ruta multiidioma
+└── styles/
+    └── global.css
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos
 
-## 🚀 Project Structure
+| Comando           | Acción                              |
+| :---------------- | :---------------------------------- |
+| `npm install`     | Instala dependencias                |
+| `npm run dev`     | Servidor local en `localhost:4321`  |
+| `npm run build`   | Build estático en `./dist/`         |
+| `npm run preview` | Preview del build antes del deploy  |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contenido
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Todo el contenido vive en `src/data/` y `src/i18n/`. No editar texto directamente en componentes `.astro`.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Nuevo proyecto: `src/data/projects.js` + imagen en `public/images/projects/`
+- Nueva traducción: los tres archivos `src/i18n/*.json`

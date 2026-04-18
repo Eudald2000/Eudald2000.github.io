@@ -36,7 +36,7 @@ export const projects = [
     tags: ['Laravel', 'PHP', 'Blade', 'MySQL', 'Tailwind CSS'],
     image: '/images/projects/biblioteca.png',
     github: 'https://github.com/Eudald2000/Biblioteca-Laravel',
-    demo: 'https://youtu.be/WsaxyLQ_DRg',
+    video: 'https://youtu.be/WsaxyLQ_DRg',
   },
   {
     id: 'amazonas',

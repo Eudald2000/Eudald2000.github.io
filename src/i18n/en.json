@@ -9,18 +9,18 @@
     "menu_toggle": "Open menu"
   },
   "meta": {
-    "description": "Personal portfolio of Eudald Bosch, Front-End Engineer specialized in React, Astro and TypeScript."
+    "description": "Personal portfolio of Eudald Bosch, full-stack web developer with experience in React, TypeScript and Astro."
   },
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Eudald Bosch",
-    "roles": ["Full-Stack Web Developer", "Front-End Engineer", "React & Astro Specialist"],
+    "roles": ["Full-Stack Web Developer", "Front-End Engineer", "React & Next.js Developer"],
     "cta": "View projects",
     "available": "Available for new opportunities"
   },
   "about": {
     "title": "About me",
-    "bio": "Full-stack web developer with 1 year of real enterprise experience. I took part in the complete migration of an HR desktop app to the web and built functional modules from scratch using React, TypeScript, Node.js and Laravel. Looking for a team to keep growing technically and contribute from day one.",
+    "bio": "Full-stack web developer with 1 year of real enterprise experience. I took part in the migration of an HR desktop app to the web and built functional modules using JavaScript, HTML, CSS and MySQL. In personal projects I work with React, Next.js 15 and Node.js. Looking for a team to keep growing technically and contribute from day one.",
     "location": "Barcelona, Spain",
     "email": "eudald08210@gmail.com"
   },
@@ -35,11 +35,12 @@
   "projects": {
     "title": "Projects",
     "view_code": "View code",
-    "view_demo": "View demo"
+    "view_demo": "View demo",
+    "view_video": "Watch video"
   },
   "cv": {
     "title": "Resume",
-    "description": "Available in two versions depending on the context.",
+    "description": "Download the CV in the format you need.",
     "label_visual": "Visual CV",
     "label_ats": "ATS CV",
     "url_visual": "https://docs.google.com/document/d/1pYih3TUCy7H4dI3JIfR-5yRsAcw4WB9x/edit?usp=sharing",

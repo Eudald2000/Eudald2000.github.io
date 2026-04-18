@@ -9,18 +9,18 @@
     "menu_toggle": "Obrir menú"
   },
   "meta": {
-    "description": "Portfolio personal d'Eudald Bosch, Front-End Engineer especialitzat en React, Astro i TypeScript."
+    "description": "Portfolio personal d'Eudald Bosch, desenvolupador web full-stack amb experiència en React, TypeScript i Astro."
   },
   "hero": {
     "greeting": "Hola, soc",
     "name": "Eudald Bosch",
-    "roles": ["Desenvolupador Web Full-Stack", "Front-End Engineer", "Especialista en React & Astro"],
+    "roles": ["Desenvolupador Web Full-Stack", "Front-End Engineer", "Desenvolupador React & Next.js"],
     "cta": "Veure projectes",
     "available": "Disponible per a noves oportunitats"
   },
   "about": {
     "title": "Sobre mi",
-    "bio": "Desenvolupador web full-stack amb 1 any d'experiència en entorn empresarial real. Vaig participar en la migració completa d'una aplicació de RRHH d'escriptori a web i vaig desenvolupar mòduls funcionals des de zero amb React, TypeScript, Node.js i Laravel. Busco un equip on seguir creixent tècnicament i aportar des del primer dia.",
+    "bio": "Desenvolupador web full-stack amb 1 any d'experiència en entorn empresarial real. Vaig participar en la migració d'una aplicació de RRHH d'escriptori a web i vaig desenvolupar mòduls funcionals amb JavaScript, HTML, CSS i MySQL. En projectes personals treballo amb React, Next.js 15 i Node.js. Busco un equip on seguir creixent tècnicament i aportar des del primer dia.",
     "location": "Barcelona, Espanya",
     "email": "eudald08210@gmail.com"
   },
@@ -35,11 +35,12 @@
   "projects": {
     "title": "Projectes",
     "view_code": "Veure codi",
-    "view_demo": "Veure demo"
+    "view_demo": "Veure demo",
+    "view_video": "Veure vídeo"
   },
   "cv": {
     "title": "Currículum",
-    "description": "Disponible en dues versions segons el context.",
+    "description": "Descarrega el CV en el format que necessites.",
     "label_visual": "CV Visual",
     "label_ats": "CV per a ATS",
     "url_visual": "https://docs.google.com/document/d/1pYih3TUCy7H4dI3JIfR-5yRsAcw4WB9x/edit?usp=sharing",
