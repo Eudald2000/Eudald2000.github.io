@@ -11,6 +11,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "overrides": {
+    "devalue": ">=5.8.1"
+  },
   "dependencies": {
     "@iconify-json/simple-icons": "^1.2.78",
     "@tailwindcss/vite": "^4.2.2",
